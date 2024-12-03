@@ -1,10 +1,8 @@
-import { ReactNode } from 'react';
-import SpriteSheet from '@/components/icon/SpriteSheet';
+import React, { ReactNode } from "react";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="w-full min-h-screen mx-auto shadow-md max-w-screen-lg bg-mainBackground">
-      {SpriteSheet}
+    <div className="max-w-[768px] min-h-screen mx-auto shadow-md">
       {children}
     </div>
   );
