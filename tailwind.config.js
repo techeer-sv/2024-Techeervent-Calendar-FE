@@ -3,6 +3,10 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        pretendard: ['Pretendard', 'sans-serif'], // Pretendard 폰트 추가
+        jua: ['Jua', 'sans-serif'],              // Jua 폰트 추가
+      },
       colors: {
         // 배경색
         mainBackground: '#192944', // 배경 메인
