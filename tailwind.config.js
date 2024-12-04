@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   darkMode: ['class'],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -5,7 +7,10 @@ module.exports = {
     extend: {
       fontFamily: {
         pretendard: ['Pretendard', 'sans-serif'], // Pretendard 폰트 추가
-        jua: ['Jua', 'sans-serif'],              // Jua 폰트 추가
+        jua: ['Jua', 'sans-serif'], // Jua 폰트 추가
+      },
+      screens: {
+        default: '576px',
       },
       colors: {
         // 배경색
@@ -37,5 +42,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+
+  plugins: [
+    require('@tailwindcss/forms'), // 플러그인 추가
+  ],
 };
