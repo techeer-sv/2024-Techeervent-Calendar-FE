@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="max-w-[768px] min-h-screen mx-auto shadow-md">
+    <div className="w-full min-h-screen mx-auto shadow-md max-w-screen-default ">
       {children}
     </div>
   );
