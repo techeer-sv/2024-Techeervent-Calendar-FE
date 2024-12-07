@@ -11,7 +11,7 @@ module.exports = {
         continuous: ['Continuous', 'sans-self'], // Continuous 폰트 추가
       },
       screens: {
-        sm: '320px',
+        sm: '350px',
         md: '480px',
         default: '576px',
       },

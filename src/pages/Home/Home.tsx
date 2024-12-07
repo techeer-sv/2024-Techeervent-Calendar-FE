@@ -6,8 +6,17 @@ import Tree from '../../../public/assets/Tree.svg';
 import Calendar from './components/Calendar';
 import GiftInfo from './components/GiftInfo';
 import QnaCounter from './components/QnaCounter';
+import useWindowSize from './hooks/useWindowSize';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
+  const [windowSize] = useWindowSize();
+  const [width, setWidth] = useState(false);
+
+  useEffect(() => {
+    setWidth(windowSize.width <= 500);
+  }, [windowSize]);
+
   return (
     <div className="relative flex flex-col justify-center items-center h-full min-h-screen">
       <div className="relative">
@@ -30,32 +39,36 @@ const Home = () => {
 
       <img src={SnowField} alt="눈" className="absolute bottom-0" />
 
-      <div className="relative flex w-full max-h-96 h-full mb-[4%]">
+      <div className="relative flex w-full max-h-84 h-full mb-6">
         <div className="relative z-10 flex-auto basis-[50%]">
-          <img src={Tree} alt="크리스마스 트리" />
+          <img src={Tree} alt="크리스마스 트리" className="absolute bottom-0" />
           <QnaCounter />
         </div>
 
         <div className="relative flex flex-col flex-auto justify-start basis-[50%]">
           <GiftInfo />
 
-          <div className="text-white mb-[14%]">
-            <h1 className="text-lg md:text-xl font-jua">
+          <div className="text-white mb-8">
+            <h1 className="md:text-[130%] text-[100%] font-jua">
               <span className="text-yellowText">2024년, 올 한해도 수고한</span>
               <br />
-              <span className="text-yellowText">태커인</span> 을 위한 힐링 선물
+              <span className="text-yellowText">테커인</span> 을 위한 힐링 선물
             </h1>
-            <span className="font-pretendard text-xs md:text-sm">
+            <span className="font-pretendard text-[60%] md:text-[80%]">
               (1일 1회 참여 가능)
             </span>
             <br />
-            <span className="font-pretendard text-xs md:text-sm">
-              이벤트 기간: 2024년 12월 25일(수) ~ 31일(화)
+            <span className="font-pretendard text-[60%] md:text-[80%]">
+              이벤트 기간: 2024년 12월 25일 ~ 31일
             </span>
           </div>
 
-          <div className="flex flex-col justify-start">
-            <h1 className="text-lg md:text-xl font-jua">
+          <div
+            className={`flex flex-col justify-start ml-4 ${
+              width ? 'opacity-0' : 'opacity-100'
+            } transition-opacity duration-300`}
+          >
+            <h1 className="text-[100%] md:text-[120%] font-jua">
               <span className="font-jua text-confirmText">
                 트리에 모든 답변이
               </span>
@@ -64,13 +77,13 @@ const Home = () => {
                 차곡차곡 쌓이는 중...🎄
               </span>
             </h1>
-            <span className="font-pretendard font-semibold text-xs md:text-sm text-black">
+            <span className="font-pretendard font-semibold text-[60%] md:text-[70%] text-black">
               모두의 마음이 모여 트리가 채워지고 있어요!
             </span>
-            <span className="font-pretendard font-semibold text-xs md:text-sm text-black">
+            <span className="font-pretendard font-semibold text-[60%] md:text-[70%] text-black">
               트리를 클릭해 이야기들을 함께 확인해보세요.
             </span>
-            <span className="font-pretendard text-xs md:text-sm text-grayText">
+            <span className="font-pretendard text-[60%] md:text-[70%] text-grayText">
               (31일 확인 가능)
             </span>
           </div>
