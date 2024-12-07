@@ -8,8 +8,11 @@ module.exports = {
       fontFamily: {
         pretendard: ['Pretendard', 'sans-serif'], // Pretendard 폰트 추가
         jua: ['Jua', 'sans-serif'], // Jua 폰트 추가
+        continuous: ['Continuous', 'sans-self'], // Continuous 폰트 추가
       },
       screens: {
+        sm: '320px',
+        md: '480px',
         default: '576px',
       },
       colors: {
