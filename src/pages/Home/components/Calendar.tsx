@@ -15,7 +15,7 @@ const Calendar = () => {
   };
 
   return (
-    <div className="relative mb-6">
+    <div className="relative mb-8">
       <img src={Building} alt="캘린더 뼈대" className="w-[100%]" />
       {positions.map(({ date, x, y, isOpen, giftImage }) => (
         <Window
