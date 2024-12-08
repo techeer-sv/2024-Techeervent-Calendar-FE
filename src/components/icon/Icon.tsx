@@ -9,22 +9,34 @@ type IconIdType =
   | 'delete'
   | 'question'
   | 'santa'
-  | 'search';
+  | 'search'
+  | 'snow-crystal';
+
+type ColorType = 'red' | 'green';
+
+const colorMap: Record<ColorType, string> = {
+  red: '#E02626',
+  green: '#1E8926',
+};
 
 interface IconProps {
   id: IconIdType;
   width?: number;
   height?: number;
   className?: string;
+  color?: ColorType;
 }
 
-const Icon = ({ id, width, height, className }: IconProps) => {
+const Icon = ({ id, width, height, className, color }: IconProps) => {
+  const resolvedColor = color ? colorMap[color] : undefined;
+
   return (
     <svg
       {...(width ? { width: `${width}px` } : {})}
       {...(height ? { height: `${height}px` } : {})}
       className={`${className || ''}`}
       aria-hidden="true"
+      style={resolvedColor ? { color: resolvedColor } : {}}
     >
       <use xlinkHref={`#${id}`} />
     </svg>
