@@ -1,3 +1,4 @@
+import DynamicIcon from '@/components/icon/DynamicIcon';
 import { Button } from '@/components/ui/button';
 import React, { useEffect, useRef } from 'react';
 
@@ -17,7 +18,7 @@ const LoginModal = ({ onSubmit }: LoginModalProps) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
       <div className="w-modal min-h-modal p-4  rounded-[10px] bg-modalWhite flex flex-col items-center justify-center">
-        <div className="w-[118px] h-[116px] bg-redText">눈 내리니는 사진</div>
+        <DynamicIcon className="w-[118px] h-[116px]" type="snow" />
         <div className="my-[60px]">
           <div className="border-b-[1px] border-rgba(0, 0, 0, 0.5) mb-[10px]">
             <input
@@ -37,7 +38,7 @@ const LoginModal = ({ onSubmit }: LoginModalProps) => {
 
         <Button
           onClick={onSubmit}
-          className="w-full text-[16px] rounded-[999px] bg-modalButtonBackground text-whiteDefault box-border hover:opacity-70"
+          className="w-full text-[16px] cursor-pointer rounded-[999px] bg-modalButtonBackground text-whiteDefault box-border hover:opacity-70"
         >
           시작
         </Button>
