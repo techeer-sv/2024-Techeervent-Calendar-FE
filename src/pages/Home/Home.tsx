@@ -54,10 +54,9 @@ const Home = () => {
 
   const handleWinningListDetailModalClick = () => {
     openModal(modals.WinningListDetailModal, {
-      onSubmit: () => {
-        console.log('비즈니스 로직 처리...');
+      onClose: () => {
+        console.log('hi');
       },
-      onClose: () => {},
     });
   };
 
