@@ -25,7 +25,7 @@ module.exports = {
 
         // 텍스트 색상
         mainText: '#9DFF64', // 메인 사용자 이름
-        modalBackground: '#FADEC9', // 창문 열렸을 시 배경
+        modalButtonBackground: '#FA5F7F', // 창문 열렸을 시 배경
         yellowText: '#FACB39', // 노랑 텍스트
         redText: '#F8583F', // 당첨 모달 텍스트
         questionText: '#FFE9EE', // 질문 리스트 상세 질문 텍스트
@@ -37,11 +37,20 @@ module.exports = {
 
         // 기타 색상
         confirmBackground: '#F3F3F3', // 답변 확인 텍스트 배경
+        modalWhite: '#FFFFFF', // 모달 창 배경색 추가
+        whiteDefault: '#FFFFFF',
+        blackDefault: '#000000',
       },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      width: {
+        modal: '280px', // 모달 너비 추가
+      },
+      height: {
+        modal: '350px', // 모달 높이 추가
       },
     },
   },
