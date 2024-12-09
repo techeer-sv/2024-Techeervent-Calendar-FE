@@ -8,6 +8,7 @@ import GiftInfo from './components/GiftInfo';
 import QnaCounter from './components/QnaCounter';
 import useWindowSize from './hooks/useWindowSize';
 import { useEffect, useState } from 'react';
+import GiftItem from './components/GiftItem';
 
 const Home = () => {
   const [windowSize] = useWindowSize();
@@ -40,25 +41,24 @@ const Home = () => {
       <img src={SnowField} alt="눈" className="absolute bottom-0" />
 
       <div className="relative flex w-full max-h-84 h-full mb-6">
-        <div className="relative z-10 flex-auto basis-[50%]">
+        <div className="relative z-10 basis-[50%]">
           <img src={Tree} alt="크리스마스 트리" className="absolute bottom-0" />
           <QnaCounter />
         </div>
 
-        <div className="relative flex flex-col flex-auto justify-start basis-[50%]">
-          <GiftInfo />
+        <div className="relative flex flex-col justify-start basis-[50%]">
+          <GiftItem />
 
-          <div className="text-white mb-8">
-            <h1 className="md:text-[130%] text-[100%] font-jua">
+          <div className="flex flex-col text-white sm:mt-5 mb-3 md:mb-12">
+            <h1 className="text-[90%] md:text-[140%] font-jua">
               <span className="text-yellowText">2024년, 올 한해도 수고한</span>
               <br />
               <span className="text-yellowText">테커인</span> 을 위한 힐링 선물
             </h1>
-            <span className="font-pretendard text-[60%] md:text-[80%]">
+            <span className="font-pretendard text-[55%] md:text-[80%]">
               (1일 1회 참여 가능)
             </span>
-            <br />
-            <span className="font-pretendard text-[60%] md:text-[80%]">
+            <span className="font-pretendard text-[55%] md:text-[80%]">
               이벤트 기간: 2024년 12월 25일 ~ 31일
             </span>
           </div>
