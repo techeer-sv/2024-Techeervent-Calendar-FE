@@ -13,7 +13,7 @@ module.exports = {
       screens: {
         sm: '350px',
         md: '480px',
-        default: '576px',
+        lg: '576px',
       },
       colors: {
         // 배경색
