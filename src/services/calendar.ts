@@ -1,4 +1,4 @@
-import axiosClient from '@/services/axios.config';
+import axiosClient from '@/config/axios.config';
 import {
   GetUserQAResponse,
   GetAnswerCountResponse,

@@ -1,4 +1,4 @@
-import axiosClient from '@/services/axios.config';
+import axiosClient from '@/config/axios.config';
 import { GetWinnersResponse } from '@/types/api/winning';
 
 export const fetchWinners = async (): Promise<GetWinnersResponse> => {
