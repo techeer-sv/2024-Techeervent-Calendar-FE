@@ -15,7 +15,7 @@ const Window = ({
   date: number;
   isOpen: boolean;
   onClick: () => void;
-  giftImage: string;
+  giftImage: React.ReactNode;
   className: string;
   style: React.CSSProperties;
 }) => {
@@ -57,17 +57,15 @@ const Window = ({
         {!isOpen && date}
       </span>
       {isOpen && (
-        <div className="">
+        <div>
           <img
             src={PinkDoor}
             alt="핑크색 문"
             className="absolute top-[18%] left-[18%] w-[64%] h-[75%] z-20"
           />
-          <img
-            src={giftImage}
-            alt={`선물상자 ${date}`}
-            className="absolute w-[58%] top-[43%] left-[50%] transform -translate-x-1/2 z-20"
-          />
+          <div className="absolute top-[115%] left-[125%] transform -translate-x-1/2 -translate-y-1/2 z-30">
+            {giftImage}
+          </div>
         </div>
       )}
     </div>
