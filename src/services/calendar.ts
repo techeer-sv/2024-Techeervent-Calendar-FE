@@ -7,9 +7,7 @@ import {
 export const fetchUserQA = async (
   userId: number
 ): Promise<GetUserQAResponse> => {
-  const response = await axiosClient.get('/calendar', {
-    params: { userId },
-  });
+  const response = await axiosClient.get(`/calendar/${userId}`);
   return response.data;
 };
 
@@ -18,13 +16,13 @@ export const searchUserQA = async (
   limit: number,
   author: string
 ): Promise<GetUserQAResponse> => {
-  const response = await axiosClient.get('/calender/answer', {
+  const response = await axiosClient.get('/calendar/answer', {
     params: { offset, limit, author },
   });
   return response.data;
 };
 
 export const fetchAnswerCount = async (): Promise<GetAnswerCountResponse> => {
-  const response = await axiosClient.get('/calender/answer/count');
+  const response = await axiosClient.get('/calendar/answer/count');
   return response.data;
 };
