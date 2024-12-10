@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Building from '../../../../public/assets/Building.svg';
 import Window from './Window';
-import CalendarPosition from './calendarData';
+import CalendarData from './calendarData';
 
 const Calendar = () => {
-  const [positions, setPositions] = useState(CalendarPosition);
+  const [positions, setPositions] = useState(CalendarData);
 
   const toggleWindow = (date: number) => {
     setPositions((prev) =>

@@ -4,7 +4,6 @@ import Logo from '../../../public/assets/Logo.svg';
 import SnowField from '../../../public/assets/SnowField.svg';
 import Tree from '../../../public/assets/Tree.svg';
 import Calendar from './components/Calendar';
-import GiftInfo from './components/GiftInfo';
 import QnaCounter from './components/QnaCounter';
 import useWindowSize from './hooks/useWindowSize';
 import { useEffect, useState } from 'react';

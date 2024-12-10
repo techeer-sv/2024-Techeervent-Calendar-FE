@@ -2,12 +2,12 @@ const SpriteSheet = (
   <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}>
     <symbol
       id="25th-box"
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      image-rendering="optimizeQuality"
-      shape-rendering="geometricPrecision"
-      text-rendering="geometricPrecision"
-      viewBox="0 0 64 64"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      imageRendering="optimizeQuality"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
+      viewBox="0 0 205 205"
     >
       <path
         fill="#3b96d1"
@@ -64,12 +64,12 @@ const SpriteSheet = (
 
     <symbol
       id="26th-box"
-      viewBox="0 0 64 64"
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      image-rendering="optimizeQuality"
-      shape-rendering="geometricPrecision"
-      text-rendering="geometricPrecision"
+      viewBox="0 0 205 205"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      imageRendering="optimizeQuality"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
     >
       <path
         fill="#f0c319"
@@ -117,12 +117,12 @@ const SpriteSheet = (
 
     <symbol
       id="27th-box"
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      image-rendering="optimizeQuality"
-      shape-rendering="geometricPrecision"
-      text-rendering="geometricPrecision"
-      viewBox="0 0 64 64"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      imageRendering="optimizeQuality"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
+      viewBox="0 0 205 205"
     >
       <path
         fill="#fa7b74"
@@ -181,12 +181,12 @@ const SpriteSheet = (
 
     <symbol
       id="28th-box"
-      viewBox="0 0 60 59"
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      image-rendering="optimizeQuality"
-      shape-rendering="geometricPrecision"
-      text-rendering="geometricPrecision"
+      viewBox="0 0 205 205"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      imageRendering="optimizeQuality"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
     >
       <path
         fill="#f19c1f"
@@ -247,12 +247,12 @@ const SpriteSheet = (
 
     <symbol
       id="29th-box"
-      viewBox="0 0 60 59"
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      image-rendering="optimizeQuality"
-      shape-rendering="geometricPrecision"
-      text-rendering="geometricPrecision"
+      viewBox="0 0 205 205"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      imageRendering="optimizeQuality"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
     >
       <path
         fill="#f7e9af"
@@ -351,12 +351,12 @@ const SpriteSheet = (
 
     <symbol
       id="30th-box"
-      viewBox="0 0 60 59"
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      image-rendering="optimizeQuality"
-      shape-rendering="geometricPrecision"
-      text-rendering="geometricPrecision"
+      viewBox="0 0 205 205"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      imageRendering="optimizeQuality"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
     >
       <path
         fill="#f0c31a"
@@ -398,12 +398,12 @@ const SpriteSheet = (
 
     <symbol
       id="31th-box"
-      viewBox="0 0 64 64"
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      image-rendering="optimizeQuality"
-      shape-rendering="geometricPrecision"
-      text-rendering="geometricPrecision"
+      viewBox="0 0 205 205"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      imageRendering="optimizeQuality"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
     >
       <path
         fill="#f0c021"
@@ -453,11 +453,11 @@ const SpriteSheet = (
     <symbol
       id="question"
       viewBox="0 0 117 117"
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      image-rendering="optimizeQuality"
-      shape-rendering="geometricPrecision"
-      text-rendering="geometricPrecision"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      imageRendering="optimizeQuality"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
     >
       <path
         fill="#ffcf4d"
@@ -479,11 +479,11 @@ const SpriteSheet = (
     <symbol
       id="delete"
       viewBox="0 0 512 512"
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      image-rendering="optimizeQuality"
-      shape-rendering="geometricPrecision"
-      text-rendering="geometricPrecision"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      imageRendering="optimizeQuality"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
     >
       <path
         fill="#ff4141"
@@ -495,11 +495,11 @@ const SpriteSheet = (
     <symbol
       id="santa"
       viewBox="0 0 110 127"
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      image-rendering="optimizeQuality"
-      shape-rendering="geometricPrecision"
-      text-rendering="geometricPrecision"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      imageRendering="optimizeQuality"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
     >
       <path
         fill="#f5ecea"
