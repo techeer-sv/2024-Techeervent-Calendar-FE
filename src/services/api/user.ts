@@ -1,20 +1,9 @@
 import axiosClient from '@/services/axios.config';
+import { SearchUsersResponse } from '@/types/api/user';
 
-interface User {
-  userId: number;
-  userName: string;
-  userYear: number;
-}
-
-interface FetchUsersResponse {
-  status: number;
-  message: string;
-  data: User[];
-}
-
-export const fetchUsers = async (
+export const searchUsers = async (
   userName: string
-): Promise<FetchUsersResponse> => {
+): Promise<SearchUsersResponse> => {
   const response = await axiosClient.get('/user', {
     params: { userName },
   });
