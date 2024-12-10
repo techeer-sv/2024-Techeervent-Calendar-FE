@@ -1,4 +1,4 @@
-import axiosClient from '@/services/axios.config';
+import axiosClient from '@/config/axios.config';
 import { GetDrawlistResponse } from '@/types/api/draw';
 
 export const fetchDrawlist = async (): Promise<GetDrawlistResponse> => {
