@@ -1,6 +1,6 @@
 import Icon from '@/components/icon/Icon';
 import { Button } from '@/components/ui/button';
-import QandA from '../../../assets/images/QandA.png';
+import QandA from '@/assets/images/QandA.png';
 import React from 'react';
 import { motion } from 'framer-motion';
 

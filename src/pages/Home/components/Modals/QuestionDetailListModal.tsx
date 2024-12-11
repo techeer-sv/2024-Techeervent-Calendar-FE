@@ -1,13 +1,12 @@
 import Icon from '@/components/icon/Icon';
-import QandA from '../../../assets/images/QandA.png';
-import React from 'react';
+import QandA from '@/assets/images/QandA.png';
 import { motion } from 'framer-motion';
 
-interface WinningListDetailModalProps {
+interface QuestionDetailListModalProps {
   onClose: () => void;
 }
 
-const WinningListDetailModal = ({ onClose }: WinningListDetailModalProps) => {
+const QuestionDetailListModal = ({ onClose }: QuestionDetailListModalProps) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <motion.div
@@ -38,13 +37,28 @@ const WinningListDetailModal = ({ onClose }: WinningListDetailModalProps) => {
               7기
             </span>
           </div>
+          <div className="flex items-center">
+            <Icon
+              id="snow-crystal"
+              className="w-[16px] h-[16px] mr-1"
+              color="red"
+            />
+            <span className="text-[#E02626] font-bold text-[15px]">질문</span>
+          </div>
 
-          <p className="text-[#E02626] font-bold text-[15px]">질문</p>
           <div className="bg-[#FFE9EE] rounded-[10px] mb-[13px] p-[10px] text-[13px] h-[100px] overflow-y-scroll">
             올해 크리스마스에 가장 받고 싶은 선물은 무엇인가요?
           </div>
 
-          <p className="text-[#1E8926] text-[15px]">답변</p>
+          <div className="flex items-center">
+            <Icon
+              id="snow-crystal"
+              className="w-[16px] h-[16px] mr-1"
+              color="green"
+            />
+            <span className="text-[#1E8926] font-bold text-[15px]">답변</span>
+          </div>
+
           <div className="bg-[#EAFBE9] rounded-[10px] p-[10px] text-[13px] h-[100px] overflow-y-scroll">
             올해 크리스마스에 가장 받고 어쩌구
           </div>
@@ -54,4 +68,4 @@ const WinningListDetailModal = ({ onClose }: WinningListDetailModalProps) => {
   );
 };
 
-export default WinningListDetailModal;
+export default QuestionDetailListModal;

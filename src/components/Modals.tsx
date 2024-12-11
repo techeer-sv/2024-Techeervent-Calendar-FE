@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useContext } from 'react';
 import { ModalsDispatchContext, ModalsStateContext } from './ModalsContext';
-import LoginModal from '@/pages/Home/components/LoginModal';
-import NoReceiveModal from '@/pages/Home/components/NoReceiveModal';
-import QuestionModal from '@/pages/Home/components/QuestionModal';
-import QuestionCheckModal from '@/pages/Home/components/QuestionCheckModal';
-import ReceiveModal from '@/pages/Home/components/ReceiveModal';
-import UnableConfirmModal from '@/pages/Home/components/UnableConfirmModal';
-import WinningListDetailModal from '@/pages/Home/components/WinningListDetailModal';
-import WinningListModal from '@/pages/Home/components/WinningListModal';
+import LoginModal from '@/pages/Home/components/Modals/LoginModal';
+import NoReceiveModal from '@/pages/Home/components/Modals/NoReceiveModal';
+import QuestionModal from '@/pages/Home/components/Modals/QuestionModal';
+import QuestionCheckModal from '@/pages/Home/components/Modals/QuestionCheckModal';
+import ReceiveModal from '@/pages/Home/components/Modals/ReceiveModal';
+import UnableConfirmModal from '@/pages/Home/components/Modals/UnableConfirmModal';
+import WinningListModal from '@/pages/Home/components/Modals/WinningListModal';
 import { AnimatePresence } from 'framer-motion';
+import QuestionDetailListModal from '@/pages/Home/components/Modals/QuestionDetailListModal';
 
 export const modals = {
   LoginModal,
@@ -18,7 +18,7 @@ export const modals = {
   QuestionCheckModal,
   ReceiveModal,
   UnableConfirmModal,
-  WinningListDetailModal,
+  QuestionDetailListModal,
   WinningListModal,
 };
 
