@@ -1,8 +1,8 @@
 import Icon from '@/components/icon/Icon';
-import Crown from '../../../assets/images/crown.png';
+import Crown from '@/assets/images/crown.png';
 import React from 'react';
 import { motion } from 'framer-motion';
-
+import GiftBox from '@/assets/images/giftBox.png';
 interface WinningListModalProps {
   onClose: () => void;
 }
@@ -33,28 +33,28 @@ const WinningListModal = ({ onClose }: WinningListModalProps) => {
         <div className="flex-1 w-full overflow-y-scroll">
           <div className="rounded-[10px] border-[1px] border-[#A1A1A1] text-[12px] mb-[2px]">
             <div className="flex items-center h-[35px] justify-between gap-4 px-4">
-              <div>사진</div>
+              <img src={GiftBox} width={23} height={23} />
               <span>스타벅스 10,000원 상품권</span>
               <span>이상민</span>
             </div>
           </div>
           <div className="rounded-[10px] border-[1px] border-[#A1A1A1] text-[12px] mb-[2px]">
             <div className="flex items-center h-[35px] justify-between gap-4 px-4">
-              <div>사진</div>
+              <img src={GiftBox} width={23} height={23} />
               <span>스타벅스 10,000원 상품권</span>
               <span>이상민</span>
             </div>
           </div>
           <div className="rounded-[10px] border-[1px] border-[#A1A1A1] text-[12px] mb-[2px]">
             <div className="flex items-center h-[35px] justify-between gap-4 px-4">
-              <div>사진</div>
+              <img src={GiftBox} width={23} height={23} />
               <span>스타벅스 10,000원 상품권</span>
               <span>이상민</span>
             </div>
           </div>
           <div className="rounded-[10px] border-[1px] border-[#A1A1A1] text-[12px] mb-[2px]">
             <div className="flex items-center h-[35px] justify-between gap-4 px-4">
-              <div>사진</div>
+              <img src={GiftBox} width={23} height={23} />
               <span>스타벅스 10,000원 상품권</span>
               <span>이상민</span>
             </div>

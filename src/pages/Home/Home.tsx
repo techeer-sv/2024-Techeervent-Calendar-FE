@@ -8,73 +8,70 @@ import QnaCounter from './components/QnaCounter';
 import useWindowSize from './hooks/useWindowSize';
 import { useEffect, useState } from 'react';
 import GiftItem from './components/GiftItem';
-import React from 'react';
-import useModal from './hooks/useModal';
-import { modals } from '@/components/Modals';
 
 const Home = () => {
-  const { openModal } = useModal();
+  // const { openModal } = useModal();
 
-  const handleLoginModalClick = () => {
-    openModal(modals.LoginModal, {
-      onSubmit: () => {
-        console.log('비즈니스 로직 처리...');
-      },
-    });
-  };
+  // const handleLoginModalClick = () => {
+  //   openModal(modals.LoginModal, {
+  //     onSubmit: () => {
+  //       console.log('비즈니스 로직 처리...');
+  //     },
+  //   });
+  // };
 
-  const handleReceiveModalClick = () => {
-    openModal(modals.ReceiveModal, {
-      onSubmit: () => {
-        console.log('비즈니스 로직 처리...');
-      },
-    });
-  };
+  // const handleReceiveModalClick = () => {
+  //   openModal(modals.ReceiveModal, {
+  //     onSubmit: () => {
+  //       console.log('비즈니스 로직 처리...');
+  //     },
+  //   });
+  // };
 
-  const handlenNoReceiveModalClick = () => {
-    openModal(modals.NoReceiveModal, {
-      onSubmit: () => {
-        console.log('비즈니스 로직 처리...');
-      },
-    });
-  };
+  // const handlenNoReceiveModalClick = () => {
+  //   openModal(modals.NoReceiveModal, {
+  //     onSubmit: () => {
+  //       console.log('비즈니스 로직 처리...');
+  //     },
+  //   });
+  // };
 
-  const handlenQuestionModalClick = () => {
-    openModal(modals.QuestionModal, {
-      onSubmit: () => {
-        console.log('비즈니스 로직 처리...');
-      },
-      onClose: () => {},
-    });
-  };
+  // const handlenQuestionModalClick = () => {
+  //   openModal(modals.QuestionModal, {
+  //     onSubmit: () => {
+  //       console.log('비즈니스 로직 처리...');
+  //     },
+  //     onClose: () => {},
+  //   });
+  // };
 
-  const handleQuestionCheckModalClick = () => {
-    openModal(modals.QuestionCheckModal, {
-      onClose: () => {},
-    });
-  };
+  // const handleQuestionCheckModalClick = () => {
+  //   openModal(modals.QuestionCheckModal, {
+  //     onClose: () => {},
+  //   });
+  // };
 
-  const handleUnableConfirmModalClick = () => {
-    openModal(modals.UnableConfirmModal, {
-      onSubmit: () => {
-        console.log('비즈니스 로직 처리...');
-      },
-    });
-  };
+  // const handleUnableConfirmModalClick = () => {
+  //   openModal(modals.UnableConfirmModal, {
+  //     onSubmit: () => {
+  //       console.log('비즈니스 로직 처리...');
+  //     },
+  //   });
+  // };
 
-  const handleWinningListDetailModalClick = () => {
-    openModal(modals.WinningListDetailModal, {
-      onClose: () => {
-        console.log('hi');
-      },
-    });
-  };
+  // const handleWinningListDetailModalClick = () => {
+  //   openModal(modals.WinningListDetailModal, {
+  //     onClose: () => {
+  //       console.log('hi');
+  //     },
+  //   });
+  // };
 
-  const handleWinningListModalClick = () => {
-    openModal(modals.WinningListModal, {
-      onClose: () => {},
-    });
-  };
+  // const handleWinningListModalClick = () => {
+  //   openModal(modals.WinningListModal, {
+  //     onClose: () => {},
+  //   });
+  // };
 
   const [windowSize] = useWindowSize();
   const [width, setWidth] = useState(false);
@@ -84,7 +81,7 @@ const Home = () => {
   }, [windowSize]);
 
   return (
-    <div className="relative flex flex-col justify-center items-center h-full min-h-screen">
+    <div className="relative flex flex-col items-center justify-center h-full min-h-screen">
       <div className="relative">
         <img src={Leaf} alt="나뭇잎" />
         <img
@@ -94,8 +91,8 @@ const Home = () => {
         />
       </div>
 
-      <div className="flex flex-col justify-center items-center">
-        <span className="text-white text-base md:text-lg font-pretendard">
+      <div className="flex flex-col items-center justify-center">
+        <span className="text-base text-white md:text-lg font-pretendard">
           매일이 설레는 고예진님의 선물!
         </span>
         <img src={Logo} alt="테커벤트 캘린더 로고" className="w-[95%] mb-4" />
@@ -105,7 +102,7 @@ const Home = () => {
 
       <img src={SnowField} alt="눈" className="absolute bottom-0" />
 
-      <div className="relative flex w-full max-h-84 h-full mb-6">
+      <div className="relative flex w-full h-full mb-6 max-h-84">
         <div className="relative z-10 basis-[50%]">
           <img src={Tree} alt="크리스마스 트리" className="absolute bottom-0" />
           <QnaCounter />
@@ -114,7 +111,7 @@ const Home = () => {
         <div className="relative flex flex-col justify-start basis-[50%]">
           <GiftItem />
 
-          <div className="flex flex-col text-white sm:mt-5 mb-3 md:mb-12">
+          <div className="flex flex-col mb-3 text-white sm:mt-5 md:mb-12">
             <h1 className="text-[90%] md:text-[140%] font-jua">
               <span className="text-yellowText">2024년, 올 한해도 수고한</span>
               <br />
