@@ -33,31 +33,29 @@ const Modals = () => {
   const { close } = dispatch;
 
   return (
-    <>
-      <AnimatePresence>
-        {openedModals.map((modal, index) => {
-          const { Component, props } = modal;
-          const { onSubmit, ...restProps } = props;
+    <AnimatePresence>
+      {openedModals.map((modal, index) => {
+        const { Component, props } = modal;
+        const { onSubmit, ...restProps } = props;
 
-          const onClose = () => close(Component);
+        const onClose = () => close(Component);
 
-          const handleSubmit = async () => {
-            if (typeof onSubmit === 'function') {
-              await onSubmit();
-            }
-            onClose();
-          };
-          return (
-            <Component
-              {...props}
-              key={index}
-              onClose={onClose}
-              onSubmit={handleSubmit}
-            />
-          );
-        })}
-      </AnimatePresence>
-    </>
+        const handleSubmit = async () => {
+          if (typeof onSubmit === 'function') {
+            await onSubmit();
+          }
+          onClose();
+        };
+        return (
+          <Component
+            {...props}
+            key={index}
+            onClose={onClose}
+            onSubmit={handleSubmit}
+          />
+        );
+      })}
+    </AnimatePresence>
   );
 };
 
