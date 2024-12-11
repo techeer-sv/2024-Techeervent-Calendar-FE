@@ -7,7 +7,7 @@ const SpriteSheet = (
       imageRendering="optimizeQuality"
       shapeRendering="geometricPrecision"
       textRendering="geometricPrecision"
-      viewBox="0 0 205 205"
+      viewBox="0 0 64 64"
     >
       <path
         fill="#3b96d1"
@@ -64,7 +64,7 @@ const SpriteSheet = (
 
     <symbol
       id="26th-box"
-      viewBox="0 0 205 205"
+      viewBox="0 0 64 64"
       fillRule="evenodd"
       clipRule="evenodd"
       imageRendering="optimizeQuality"
@@ -122,7 +122,7 @@ const SpriteSheet = (
       imageRendering="optimizeQuality"
       shapeRendering="geometricPrecision"
       textRendering="geometricPrecision"
-      viewBox="0 0 205 205"
+      viewBox="0 0 64 64"
     >
       <path
         fill="#fa7b74"
@@ -181,7 +181,7 @@ const SpriteSheet = (
 
     <symbol
       id="28th-box"
-      viewBox="0 0 205 205"
+      viewBox="0 0 64 64"
       fillRule="evenodd"
       clipRule="evenodd"
       imageRendering="optimizeQuality"
@@ -247,7 +247,7 @@ const SpriteSheet = (
 
     <symbol
       id="29th-box"
-      viewBox="0 0 205 205"
+      viewBox="0 0 64 64"
       fillRule="evenodd"
       clipRule="evenodd"
       imageRendering="optimizeQuality"
@@ -351,7 +351,7 @@ const SpriteSheet = (
 
     <symbol
       id="30th-box"
-      viewBox="0 0 205 205"
+      viewBox="0 0 64 64"
       fillRule="evenodd"
       clipRule="evenodd"
       imageRendering="optimizeQuality"
@@ -398,7 +398,7 @@ const SpriteSheet = (
 
     <symbol
       id="31th-box"
-      viewBox="0 0 205 205"
+      viewBox="0 0 64 64"
       fillRule="evenodd"
       clipRule="evenodd"
       imageRendering="optimizeQuality"

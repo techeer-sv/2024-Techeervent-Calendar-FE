@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Building from '../../../../public/assets/Building.svg';
 import Window from './Window';
-import CalendarData from './calendarData';
+import CalendarData from './CalendarData';
 
 const Calendar = () => {
   const [positions, setPositions] = useState(CalendarData);
