@@ -63,7 +63,7 @@ const Window = ({
             alt="핑크색 문"
             className="absolute top-[18%] left-[18%] w-[64%] h-[75%] z-20"
           />
-          <div className="absolute top-[115%] left-[125%] transform -translate-x-1/2 -translate-y-1/2 z-30">
+          <div className="absolute top-[66%] left-[53%] transform -translate-x-1/2 -translate-y-1/2 z-30">
             {giftImage}
           </div>
         </div>
