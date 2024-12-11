@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { createContext } from 'react';
+import { ComponentType, createContext } from 'react';
 
 export interface ModalsDispatch {
-  open: (Component: any, props: any) => any;
-  close: (Component: any) => any;
+  open: <P>(Component: ComponentType<P>, props: P) => void;
+  close: <P>(Component: ComponentType<P>) => void;
 }
 
-export interface ModalItem {
-  Component: any;
-  props: any;
+export interface ModalItem<P = any> {
+  Component: ComponentType<P>;
+  props: P;
 }
 
 // 모달의 상태를 저장할 컨텍스트
