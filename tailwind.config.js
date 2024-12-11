@@ -44,10 +44,10 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)',
       },
       width: {
-        modal: '280px', // 모달 너비 추가
+        modal: '350px', // 모달 너비 추가
       },
       height: {
-        modal: '350px', // 모달 높이 추가
+        modal: '400px', // 모달 높이 추가
       },
     },
   },

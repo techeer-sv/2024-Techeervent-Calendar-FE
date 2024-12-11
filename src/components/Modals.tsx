@@ -9,6 +9,7 @@ import ReceiveModal from '@/pages/Home/components/ReceiveModal';
 import UnableConfirmModal from '@/pages/Home/components/UnableConfirmModal';
 import WinningListDetailModal from '@/pages/Home/components/WinningListDetailModal';
 import WinningListModal from '@/pages/Home/components/WinningListModal';
+import { AnimatePresence } from 'framer-motion';
 
 export const modals = {
   LoginModal,
@@ -33,27 +34,29 @@ const Modals = () => {
 
   return (
     <>
-      {openedModals.map((modal, index) => {
-        const { Component, props } = modal;
-        const { onSubmit, ...restProps } = props;
+      <AnimatePresence>
+        {openedModals.map((modal, index) => {
+          const { Component, props } = modal;
+          const { onSubmit, ...restProps } = props;
 
-        const onClose = () => close(Component);
+          const onClose = () => close(Component);
 
-        const handleSubmit = async () => {
-          if (typeof onSubmit === 'function') {
-            await onSubmit();
-          }
-          onClose();
-        };
-        return (
-          <Component
-            {...props}
-            key={index}
-            onClose={onClose}
-            onSubmit={handleSubmit}
-          />
-        );
-      })}
+          const handleSubmit = async () => {
+            if (typeof onSubmit === 'function') {
+              await onSubmit();
+            }
+            onClose();
+          };
+          return (
+            <Component
+              {...props}
+              key={index}
+              onClose={onClose}
+              onSubmit={handleSubmit}
+            />
+          );
+        })}
+      </AnimatePresence>
     </>
   );
 };
