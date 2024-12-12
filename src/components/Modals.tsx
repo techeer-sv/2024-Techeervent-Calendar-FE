@@ -10,6 +10,7 @@ import UnableConfirmModal from '@/pages/Home/components/Modals/UnableConfirmModa
 import WinningListModal from '@/pages/Home/components/Modals/WinningListModal';
 import { AnimatePresence } from 'framer-motion';
 import QuestionDetailListModal from '@/pages/Home/components/Modals/QuestionDetailListModal';
+import QuestionListModal from '@/pages/Home/components/Modals/QuestionListModal';
 
 export const modals = {
   LoginModal,
@@ -18,6 +19,7 @@ export const modals = {
   QuestionCheckModal,
   ReceiveModal,
   UnableConfirmModal,
+  QuestionListModal,
   QuestionDetailListModal,
   WinningListModal,
 };
