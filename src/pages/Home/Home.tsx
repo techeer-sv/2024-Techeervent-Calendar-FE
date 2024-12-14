@@ -8,6 +8,7 @@ import QnaCounter from './components/QnaCounter';
 import useWindowSize from './hooks/useWindowSize';
 import { useEffect, useState } from 'react';
 import GiftItem from './components/GiftItem';
+import Snow from './components/Snow';
 
 const Home = () => {
   // const { openModal } = useModal();
@@ -72,7 +73,6 @@ const Home = () => {
   //     onClose: () => {},
   //   });
   // };
-
   const [windowSize] = useWindowSize();
   const [width, setWidth] = useState(false);
 
@@ -82,6 +82,7 @@ const Home = () => {
 
   return (
     <div className="relative flex flex-col items-center justify-center h-full min-h-screen">
+      <Snow />
       <div className="relative">
         <img src={Leaf} alt="나뭇잎" />
         <img
