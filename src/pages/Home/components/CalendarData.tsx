@@ -53,3 +53,33 @@ const CalendarData = [
 ];
 
 export default CalendarData;
+
+export const USER_CALENDAR = [
+  {
+    calendarId: 1,
+    calendarDate: 25,
+    qa: {
+      question: 'What is your favorite color?',
+      answer: 'Blue',
+    },
+    drawName: 'Gift A',
+  },
+  {
+    calendarId: 2,
+    calendarDate: 26,
+    qa: {
+      question: 'What is your favorite food?',
+      answer: 'Pizza',
+    },
+    drawName: null, // 낙첨
+  },
+  {
+    calendarId: 3,
+    calendarDate: 28,
+    qa: {
+      question: 'Where do you want to travel?',
+      answer: 'Japan',
+    },
+    drawName: null, // 낙첨
+  },
+];

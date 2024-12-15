@@ -22,37 +22,6 @@ const Home = () => {
   //   });
   // };
 
-  // const handleReceiveModalClick = () => {
-  //   openModal(modals.ReceiveModal, {
-  //     onSubmit: () => {
-  //       console.log('비즈니스 로직 처리...');
-  //     },
-  //   });
-  // };
-
-  // const handlenNoReceiveModalClick = () => {
-  //   openModal(modals.NoReceiveModal, {
-  //     onSubmit: () => {
-  //       console.log('비즈니스 로직 처리...');
-  //     },
-  //   });
-  // };
-
-  // const handlenQuestionModalClick = () => {
-  //   openModal(modals.QuestionModal, {
-  //     onSubmit: () => {
-  //       console.log('비즈니스 로직 처리...');
-  //     },
-  //     onClose: () => {},
-  //   });
-  // };
-
-  // const handleQuestionCheckModalClick = () => {
-  //   openModal(modals.QuestionCheckModal, {
-  //     onClose: () => {},
-  //   });
-  // };
-
   // const handleUnableConfirmModalClick = () => {
   //   openModal(modals.UnableConfirmModal, {
   //     onSubmit: () => {
