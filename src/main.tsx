@@ -8,6 +8,7 @@ import Layout from './Layout.tsx';
 
 import ModalsProvider from './components/ModalsProvider.tsx';
 import Modals from './components/Modals.tsx';
+import { Toaster } from './components/ui/toaster.tsx';
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')!).render(
           <App />
         </Layout>
         <Modals />
+        <Toaster />
       </ModalsProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

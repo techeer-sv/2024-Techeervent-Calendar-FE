@@ -11,6 +11,8 @@ const Window = ({
   giftImage,
   className,
   style,
+  TODAY,
+  modal,
 }: {
   date: number;
   isOpen: boolean;
@@ -18,6 +20,8 @@ const Window = ({
   giftImage: React.ReactNode;
   className: string;
   style: React.CSSProperties;
+  TODAY: number;
+  modal: () => void;
 }) => {
   return (
     <div className={`${className}`} style={style}>
@@ -38,17 +42,19 @@ const Window = ({
             transformOrigin: 'left',
           }}
         >
-          <img
-            src={Door}
-            alt="애니메이션 문"
-            className="w-full h-full object-contain"
-          />
+          {TODAY === date && (
+            <img
+              src={Door}
+              alt="애니메이션 문"
+              className="object-contain w-full h-full"
+            />
+          )}
         </motion.div>
       )}
       <img
         src={CloseWindowIcon}
         alt="닫힌 창문"
-        className="relative w-full object-cover"
+        className="relative object-cover w-full"
       />
       <span
         onClick={onClick}
@@ -57,7 +63,14 @@ const Window = ({
         {!isOpen && date}
       </span>
       {isOpen && (
-        <div>
+        <div
+          onClick={() => {
+            //date 와 TODAY를 비교하면서 거기에 맞는 모달창을 띄워준다.
+            //모달 상태를 props로 받아서 처리
+            console.log('hi');
+            modal();
+          }}
+        >
           <img
             src={PinkDoor}
             alt="핑크색 문"
