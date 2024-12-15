@@ -1,5 +1,4 @@
 import Leaf from '../../../public/assets/Leaf.svg';
-import CrownButton from '../../../public/assets/CrownBtn.svg';
 import Logo from '../../../public/assets/Logo.svg';
 import SnowField from '../../../public/assets/SnowField.svg';
 import Tree from '../../../public/assets/Tree.svg';
@@ -8,6 +7,7 @@ import QnaCounter from './components/QnaCounter';
 import useWindowSize from './hooks/useWindowSize';
 import { useEffect, useState } from 'react';
 import GiftItem from './components/GiftItem';
+import WinningList from './components/WinningList';
 import Snow from './components/Snow';
 import Bell from './components/Bell';
 import consoleArt from '@/utils/consoleArt';
@@ -35,6 +35,7 @@ const Home = () => {
           className="absolute right-7 top-5"
         />
         <Bell />
+        <WinningList />
       </div>
 
       <div className="flex flex-col items-center justify-center">
