@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 const SNOW_NUMBER = 40;
-const MIN_DURATION = 10;
+const MIN_DURATION = 20;
 const Snow = () => {
   const body = document.querySelector('body');
 
