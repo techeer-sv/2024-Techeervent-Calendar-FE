@@ -1,13 +1,15 @@
 import Icon from '@/components/icon/Icon';
 import Crown from '@/assets/images/crown.png';
-import React from 'react';
 import { motion } from 'framer-motion';
 import GiftBox from '@/assets/images/giftBox.png';
+import { GetWinnersResponse } from '@/types/api/winning';
+
 interface WinningListModalProps {
   onClose: () => void;
+  winner: GetWinnersResponse;
 }
 
-const WinningListModal = ({ onClose }: WinningListModalProps) => {
+const WinningListModal = ({ onClose, winner }: WinningListModalProps) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <motion.div
@@ -30,35 +32,19 @@ const WinningListModal = ({ onClose }: WinningListModalProps) => {
 
         <img className="w-[80px] h-[62px] mb-3" src={Crown} />
 
-        <div className="flex-1 w-full overflow-y-scroll">
-          <div className="rounded-[10px] border-[1px] border-[#A1A1A1] text-[12px] mb-[2px]">
-            <div className="flex items-center h-[35px] justify-between gap-4 px-4">
-              <img src={GiftBox} width={23} height={23} />
-              <span>스타벅스 10,000원 상품권</span>
-              <span>이상민</span>
+        <div className="flex-1 w-full overflow-auto">
+          {winner.data.map((item, index) => (
+            <div
+              key={index}
+              className="rounded-[10px] border-[1px] border-[#A1A1A1] text-[13px] mb-[2px]"
+            >
+              <div className="flex items-center h-[35px] justify-between gap-4 px-4">
+                <img src={GiftBox} width={25} height={25} alt="Gift Box" />
+                <span>{item.drawName}</span>
+                <span>{item.user.userName}</span>
+              </div>
             </div>
-          </div>
-          <div className="rounded-[10px] border-[1px] border-[#A1A1A1] text-[12px] mb-[2px]">
-            <div className="flex items-center h-[35px] justify-between gap-4 px-4">
-              <img src={GiftBox} width={23} height={23} />
-              <span>스타벅스 10,000원 상품권</span>
-              <span>이상민</span>
-            </div>
-          </div>
-          <div className="rounded-[10px] border-[1px] border-[#A1A1A1] text-[12px] mb-[2px]">
-            <div className="flex items-center h-[35px] justify-between gap-4 px-4">
-              <img src={GiftBox} width={23} height={23} />
-              <span>스타벅스 10,000원 상품권</span>
-              <span>이상민</span>
-            </div>
-          </div>
-          <div className="rounded-[10px] border-[1px] border-[#A1A1A1] text-[12px] mb-[2px]">
-            <div className="flex items-center h-[35px] justify-between gap-4 px-4">
-              <img src={GiftBox} width={23} height={23} />
-              <span>스타벅스 10,000원 상품권</span>
-              <span>이상민</span>
-            </div>
-          </div>
+          ))}
         </div>
       </motion.div>
     </div>
