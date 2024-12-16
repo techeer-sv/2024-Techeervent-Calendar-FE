@@ -9,6 +9,7 @@ import useWindowSize from './hooks/useWindowSize';
 import { useEffect, useState } from 'react';
 import GiftItem from './components/GiftItem';
 import Snow from './components/Snow';
+import Bell from './components/Bell';
 
 const Home = () => {
   // const { openModal } = useModal();
@@ -90,6 +91,7 @@ const Home = () => {
           alt="당첨자 리스트 버튼"
           className="absolute right-7 top-5"
         />
+        <Bell />
       </div>
 
       <div className="flex flex-col items-center justify-center">
