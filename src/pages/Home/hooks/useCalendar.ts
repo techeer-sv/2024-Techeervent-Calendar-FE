@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CalendarData, { USER_CALENDAR } from '../components/CalendarData';
-import { toast } from '@/hooks/use-toast';
+import useModal from './useModal';
+import { modals } from '@/components/Modals';
 
 interface CalendarPosition {
   date: number;
@@ -20,54 +21,29 @@ const useCalendarInfo = () => {
   const [calendarPositions, setCalendarPositions] = useState<
     CalendarPosition[]
   >([]);
+  const { openModal } = useModal();
 
   const TODAY = 29; // 현재 날짜;
+
+  const handleUnableConfirmModalClick = () => {
+    openModal(modals.UnableConfirmModal, {
+      onSubmit: () => {
+        console.log('비즈니스 로직 처리...');
+      },
+    });
+  };
+
   const toggleWindow = (date: number) => {
     if (date > TODAY) {
-      // 아직 도착하지 않은 날짜
-      toast({
-        title: `📅 ${date}일은 아직 도착하지 않았어요!`,
-        description: '조금만 더 기다리세요!',
-        style: {
-          background: '#ffeb3d',
-          color: 'black',
-          padding: '16px',
-          fontWeight: 'bold',
-          borderRadius: '12px',
-        },
-      });
+      handleUnableConfirmModalClick();
     } else if (date === TODAY) {
-      // 오늘 열리는 날짜
-      toast({
-        title: '🎁 선물이 열렸습니다!',
-        description: '오늘 날짜의 선물을 열어보세요!',
-        style: {
-          background: '#2ecc71',
-          color: 'white',
-          padding: '16px',
-          fontWeight: 'bold',
-          borderRadius: '12px',
-        },
-      });
-
       setCalendarPositions((prev) =>
         prev.map((pos) =>
           pos.date === date ? { ...pos, isOpen: !pos.isOpen } : pos
         )
       );
     } else {
-      // 이미 지나간 날짜
-      toast({
-        title: `❄️ ${date}일이 이미 지나갔어요!`,
-        description: '놓친 선물을 다시 확인하세요.',
-        style: {
-          background: '#ff5722',
-          color: 'white',
-          padding: '16px',
-          fontWeight: 'bold',
-          borderRadius: '12px',
-        },
-      });
+      handleUnableConfirmModalClick();
     }
   };
 
