@@ -12,37 +12,6 @@ import Snow from './components/Snow';
 import Bell from './components/Bell';
 
 const Home = () => {
-  // const { openModal } = useModal();
-
-  // const handleLoginModalClick = () => {
-  //   openModal(modals.LoginModal, {
-  //     onSubmit: () => {
-  //       console.log('비즈니스 로직 처리...');
-  //     },
-  //   });
-  // };
-
-  // const handleUnableConfirmModalClick = () => {
-  //   openModal(modals.UnableConfirmModal, {
-  //     onSubmit: () => {
-  //       console.log('비즈니스 로직 처리...');
-  //     },
-  //   });
-  // };
-
-  // const handleWinningListDetailModalClick = () => {
-  //   openModal(modals.WinningListDetailModal, {
-  //     onClose: () => {
-  //       console.log('hi');
-  //     },
-  //   });
-  // };
-
-  // const handleWinningListModalClick = () => {
-  //   openModal(modals.WinningListModal, {
-  //     onClose: () => {},
-  //   });
-  // };
   const [windowSize] = useWindowSize();
   const [width, setWidth] = useState(false);
 
