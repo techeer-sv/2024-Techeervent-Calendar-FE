@@ -1,13 +1,26 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import NotFound from './pages/NotFound/NotFound';
+import Layout from './Layout.tsx';
+import ModalsProvider from './components/ModalsProvider.tsx';
+import Modals from './components/Modals.tsx';
+import Dino from './pages/Home/components/DinoGame.tsx';
+import Home from './pages/Home/Home.tsx';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
+        <Route
+          path="/"
+          element={
+            <ModalsProvider>
+              <Layout>
+                <Home />
+              </Layout>
+              <Modals />
+            </ModalsProvider>
+          }
+        />
+        <Route path="*" element={<Dino />} />
       </Routes>
     </Router>
   );
