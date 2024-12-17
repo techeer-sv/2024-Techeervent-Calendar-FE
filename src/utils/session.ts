@@ -1,16 +1,21 @@
 import { User } from '@/types/common';
 
+type UserKey = keyof User;
+type UserValueMap = {
+  [K in keyof User]: User[K];
+};
+
 export const session = {
-  set: (key: string, value: User): void => {
+  set<K extends UserKey>(key: K, value: UserValueMap[K]): void {
     const serializedValue = JSON.stringify(value);
     sessionStorage.setItem(key, serializedValue);
   },
 
-  get: <User>(key: string): User | null => {
+  get<K extends UserKey>(key: K): UserValueMap[K] | null {
     const serializedValue = sessionStorage.getItem(key);
     if (serializedValue) {
       try {
-        return JSON.parse(serializedValue) as User;
+        return JSON.parse(serializedValue) as UserValueMap[K];
       } catch {
         console.error(`Failed to parse sessionStorage value for key: ${key}`);
         return null;
@@ -19,11 +24,11 @@ export const session = {
     return null;
   },
 
-  remove: (key: string): void => {
+  remove(key: UserKey): void {
     sessionStorage.removeItem(key);
   },
 
-  clear: (): void => {
+  clear(): void {
     sessionStorage.clear();
   },
 };
