@@ -4,17 +4,37 @@ import SnowField from '../../../public/assets/SnowField.svg';
 import Calendar from './components/Calendar';
 import QnaCounter from './components/QnaCounter';
 import useWindowSize from './hooks/useWindowSize';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import GiftItem from './components/GiftItem';
 import WinningList from './components/WinningList';
 import AnswerList from './components/AnswerList';
 import Snow from './components/Snow';
 import Bell from './components/Bell';
 import consoleArt from '@/utils/consoleArt';
+import useModal from '@/pages/Home/hooks/useModal';
+import { modals } from '@/components/Modals';
+import { session } from '@/utils/session';
 
 const Home = () => {
+  const { openModal } = useModal();
   const [windowSize] = useWindowSize();
   const [width, setWidth] = useState(false);
+
+  const isSessionMissing = useCallback(() => {
+    return !session.get('userId') || !session.get('userName');
+  }, []);
+
+  const handleLoginModalClick = useCallback(() => {
+    openModal(modals.LoginModal, {
+      onSubmit: () => {},
+    });
+  }, [openModal]);
+
+  useEffect(() => {
+    if (isSessionMissing()) {
+      handleLoginModalClick();
+    }
+  }, [isSessionMissing, handleLoginModalClick]);
 
   useEffect(() => {
     consoleArt();
