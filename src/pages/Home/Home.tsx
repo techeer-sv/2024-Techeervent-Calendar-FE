@@ -19,6 +19,7 @@ const Home = () => {
   const { openModal } = useModal();
   const [windowSize] = useWindowSize();
   const [width, setWidth] = useState(false);
+  const [userName, setUserName] = useState(session.get('userName'));
 
   const isSessionMissing = useCallback(() => {
     return !session.get('userId') || !session.get('userName');
@@ -26,7 +27,9 @@ const Home = () => {
 
   const handleLoginModalClick = useCallback(() => {
     openModal(modals.LoginModal, {
-      onSubmit: () => {},
+      onSubmit: () => {
+        setUserName(session.get('userName'));
+      },
     });
   }, [openModal]);
 
@@ -60,7 +63,7 @@ const Home = () => {
 
       <div className="flex flex-col items-center justify-center mt-[15vh]">
         <span className="text-base text-white md:text-lg font-pretendard">
-          매일이 설레는 고예진님의 선물!
+          매일이 설레는 {userName ? `${userName}님 ` : ''}선물!
         </span>
         <img src={Logo} alt="테커벤트 캘린더 로고" className="w-[95%] mb-4" />
       </div>
