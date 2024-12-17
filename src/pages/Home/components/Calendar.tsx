@@ -1,4 +1,5 @@
 import { modals } from '@/components/Modals';
+import { useEffect, useState } from 'react';
 import Building from '../../../../public/assets/Building.svg';
 import useCalendar from '../hooks/useCalendar';
 import Window from './Window';
@@ -7,6 +8,23 @@ import useModal from '../hooks/useModal';
 const Calendar = () => {
   const { calendarPositions, toggleWindow, TODAY } = useCalendar();
   const { openModal } = useModal();
+  const [days, setDays] = useState<number>(new Date().getDate());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const currentDate = new Date();
+      const currentDay = currentDate.getDate();
+
+      setDays((prevDay) => {
+        if (prevDay !== currentDay) {
+          return currentDay;
+        }
+        return prevDay;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handlenQuestionModalClick = () => {
     openModal(modals.QuestionModal, {
@@ -31,7 +49,7 @@ const Calendar = () => {
           key={date}
           date={date}
           isOpen={isOpen}
-          onClick={() => toggleWindow(date)}
+          onClick={() => date === days && toggleWindow(date)}
           giftImage={giftImage}
           style={{ top: y, left: x }}
           className="absolute w-[18%] object-cover"
