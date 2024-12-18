@@ -10,10 +10,15 @@ import { useEffect, useState } from 'react';
 import GiftItem from './components/GiftItem';
 import Snow from './components/Snow';
 import Bell from './components/Bell';
+import consoleArt from '@/utils/consoleArt';
 
 const Home = () => {
   const [windowSize] = useWindowSize();
   const [width, setWidth] = useState(false);
+
+  useEffect(() => {
+    consoleArt();
+  }, []);
 
   useEffect(() => {
     setWidth(windowSize.width <= 500);
