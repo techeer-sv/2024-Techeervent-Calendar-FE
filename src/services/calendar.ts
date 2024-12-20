@@ -3,6 +3,7 @@ import {
   GetUserQAResponse,
   GetAnswerCountResponse,
 } from '@/types/api/calendar';
+import { GetRandomQuestionResponse } from '@/types/api/question';
 
 export const fetchUserQA = async (
   userId: number
@@ -15,7 +16,7 @@ export const searchUserQA = async (
   offset: number,
   limit: number,
   author: string
-): Promise<GetUserQAResponse> => {
+): Promise<GetRandomQuestionResponse> => {
   const response = await axiosClient.get('/calendar/answer', {
     params: { offset, limit, author },
   });

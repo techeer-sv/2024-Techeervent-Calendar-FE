@@ -1,7 +1,10 @@
-import { QA } from '@/types/common';
+import { Meta, QA } from '@/types/common';
 
 export interface GetRandomQuestionResponse {
   status: number;
   message: string;
-  data: QA;
+  data: {
+    answers: QA[];
+    meta: Meta;
+  };
 }
