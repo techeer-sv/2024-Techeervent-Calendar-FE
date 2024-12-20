@@ -15,7 +15,7 @@ const Dino: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) throw new Error('Failed to get canvas rendering context');
 
-    canvas.width = window.innerWidth - 100;
+    canvas.width = 576;
     canvas.height = window.innerHeight - 100;
 
     // 이미지 로드
@@ -100,7 +100,7 @@ const Dino: React.FC = () => {
 
       // 배경 그리기 (구름과 땅)
       ctx.drawImage(cloud, 0, 0, canvas.width, 80); // 구름 배경
-      ctx.drawImage(ground, 0, canvas.height - 480, canvas.width, 80); // 땅 배경
+      ctx.drawImage(ground, 0, canvas.height - 583, canvas.width, 80); // 땅 배경
 
       // 일정 주기로 트리 생성 (1~2개 랜덤 생성)
       if (timer % 80 === 0) {
@@ -166,7 +166,7 @@ const Dino: React.FC = () => {
   }, [gameStarted]);
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center">
       <h1>Score: {score}</h1>
       {!gameStarted && (
         <div className="flex flex-col justify-center items-center text-black text-2xl">
