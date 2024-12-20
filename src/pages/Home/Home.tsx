@@ -8,6 +8,7 @@ import useWindowSize from './hooks/useWindowSize';
 import { useEffect, useState } from 'react';
 import GiftItem from './components/GiftItem';
 import WinningList from './components/WinningList';
+import AnswerList from './components/AnswerList';
 import Snow from './components/Snow';
 import Bell from './components/Bell';
 import consoleArt from '@/utils/consoleArt';
@@ -51,7 +52,7 @@ const Home = () => {
 
       <div className="relative flex w-full h-full mb-6 max-h-84">
         <div className="relative z-10 basis-[50%]">
-          <img src={Tree} alt="크리스마스 트리" className="absolute bottom-0" />
+          <AnswerList />
           <QnaCounter />
         </div>
 
