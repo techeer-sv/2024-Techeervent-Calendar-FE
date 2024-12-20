@@ -17,20 +17,20 @@ const gifts = [
     alt: '선물2',
     name: '컬리 캘린더',
     num: '(3명)',
-    width: 'w-[85%] md:w-[81%]',
+    width: 'w-[85%] md:w-[100%]',
   },
   {
     src: Ring3,
     alt: '선물3',
-    name: '비타500 100ml',
-    num: '(30명)',
-    width: 'w-[85%] md:w-[97%]',
+    name: '커피 상품권',
+    num: '(5명)',
+    width: 'w-[85%] md:w-[100%]',
   },
   {
     src: Ring4,
     alt: '선물4',
-    name: '현작자 후원 상품',
-    num: '(n명)',
+    name: '비타500 100ml',
+    num: '(20명)',
     width: 'w-[85%] md:w-[90%]',
   },
 ];
@@ -47,7 +47,7 @@ const GiftItem = () => {
           {gifts.map(({ src, alt, name, num, width }, index) => (
             <div key={index} className="flex flex-col items-center">
               <img src={src} alt={alt} className={`${width}`} />
-              <span className="text-white text-[5px] md:text-[7px] mt-2">
+              <span className="text-white text-[5px] md:text-[8px] mt-2">
                 {name}
               </span>
               <span className="text-white text-[5px] md:text-[7px]">{num}</span>
