@@ -9,6 +9,12 @@ const Dino: React.FC = () => {
   const scoreRef = useRef(0);
   const [gameStarted, setGameStarted] = useState(false);
 
+  const resetGame = () => {
+    setScore(0);
+    scoreRef.current = 0;
+    setGameStarted(false);
+  };
+
   useEffect(() => {
     const canvas = document.querySelector<HTMLCanvasElement>('#canvas');
     if (!canvas) throw new Error('Canvas element not found');
@@ -85,6 +91,7 @@ const Dino: React.FC = () => {
       if (xdif < 0 && ydif < 0) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         cancelAnimationFrame(animation);
+        resetGame();
         alert(`Game Over! Your final score: ${scoreRef.current}`);
       }
     };
