@@ -7,6 +7,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { searchUserQA } from '@/services/calendar';
 import React, { useState } from 'react';
+import { QA } from '@/types/common';
 
 interface QuestionListModalProps {
   onClose: () => void;
@@ -15,6 +16,8 @@ interface QuestionListModalProps {
 const QuestionListModal = ({ onClose }: QuestionListModalProps) => {
   const { openModal } = useModal();
   const [author, setAuthor] = useState('');
+  const [selectedQA, setSelectedQA] = useState<QA | null>(null);
+
   const fetchAnswers = async ({ pageParam }: { pageParam: number }) => {
     try {
       const response = await searchUserQA(pageParam, 10, author);
@@ -47,9 +50,11 @@ const QuestionListModal = ({ onClose }: QuestionListModalProps) => {
     setAuthor(e.target.value);
   };
 
-  const handleQuestionDetailListModalClick = () => {
+  const handleQuestionDetailListModalClick = (qa: QA) => {
+    setSelectedQA(qa);
     openModal(modals.QuestionDetailListModal, {
       onClose: () => console.log('hi'),
+      data: qa,
     });
   };
 
@@ -111,7 +116,7 @@ const QuestionListModal = ({ onClose }: QuestionListModalProps) => {
                     <div
                       key={index}
                       className="mb-2 cursor-pointer hover:opacity-70"
-                      onClick={handleQuestionDetailListModalClick}
+                      onClick={() => handleQuestionDetailListModalClick(qa)}
                     >
                       <div className="flex items-center bg-questionBackground rounded-[3px] px-[2.5] py-1">
                         <span className="min-w-[30px]">
