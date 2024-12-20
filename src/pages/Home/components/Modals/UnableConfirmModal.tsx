@@ -1,13 +1,13 @@
 import { Button } from '@/components/ui/button';
 import Warnning from '@/assets/images/warning.png';
-import React from 'react';
 import { motion } from 'framer-motion';
 
 interface UnableConfirmModalProps {
   onSubmit: () => void;
+  Day: () => number;
 }
 
-const UnableConfirmModal = ({ onSubmit }: UnableConfirmModalProps) => {
+const UnableConfirmModal = ({ onSubmit, Day }: UnableConfirmModalProps) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <motion.div
@@ -27,7 +27,7 @@ const UnableConfirmModal = ({ onSubmit }: UnableConfirmModalProps) => {
           아직은 내용을 확인할 수 없습니다 !
         </h1>
         <span className="my-[50px] text-[14px] font-medium flex-grow">
-          31일에 함께 확인해봐요!
+          {Day() || 31} 일에 함께 확인해봐요!
         </span>
         <Button
           onClick={onSubmit}

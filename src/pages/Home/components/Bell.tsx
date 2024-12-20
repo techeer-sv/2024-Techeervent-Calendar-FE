@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
-import bell_F from '../../../assets/images/bell_F.png';
-import bell_G from '../../../assets/images/bell_G.png';
-import bell_A from '../../../assets/images/bell_A.png';
-import bell_C from '../../../assets/images/bell_C.png';
+import bell_F from '../../../assets/images/bell_F.svg';
+import bell_G from '../../../assets/images/bell_G.svg';
+import bell_A from '../../../assets/images/bell_A.svg';
+import bell_C from '../../../assets/images/bell_C.svg';
 import bell_A_sound from '../../../assets/sounds/bell_A_sound.mp3';
 import bell_C_sound from '../../../assets/sounds/bell_C_sound.mp3';
 import bell_F_sound from '../../../assets/sounds/bell_F_sound.mp3';

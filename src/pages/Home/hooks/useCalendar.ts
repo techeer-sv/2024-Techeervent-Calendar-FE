@@ -23,19 +23,22 @@ const useCalendarInfo = () => {
   >([]);
   const { openModal } = useModal();
 
-  const TODAY = 29; // 현재 날짜;
-
-  const handleUnableConfirmModalClick = () => {
+  const date = new Date();
+  const TODAY = date.getDate();
+  const handleUnableConfirmModalClick = (date: number) => {
     openModal(modals.UnableConfirmModal, {
       onSubmit: () => {
         console.log('비즈니스 로직 처리...');
+      },
+      Day: () => {
+        return date;
       },
     });
   };
 
   const toggleWindow = (date: number) => {
     if (date > TODAY) {
-      handleUnableConfirmModalClick();
+      handleUnableConfirmModalClick(date);
     } else if (date === TODAY) {
       setCalendarPositions((prev) =>
         prev.map((pos) =>
@@ -43,7 +46,7 @@ const useCalendarInfo = () => {
         )
       );
     } else {
-      handleUnableConfirmModalClick();
+      handleUnableConfirmModalClick(date);
     }
   };
 
