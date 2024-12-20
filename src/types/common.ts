@@ -1,6 +1,7 @@
 export interface User {
   userName: string;
   userYear: number;
+  userId: number;
 }
 
 export interface QA {

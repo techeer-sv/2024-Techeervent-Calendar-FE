@@ -15,6 +15,7 @@ const LoginModal = ({ onSubmit }: LoginModalProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [name, setName] = useState('');
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
 
   const debouncedSetName = debounce((value: string) => setName(value), 300);
 
@@ -28,13 +29,25 @@ const LoginModal = ({ onSubmit }: LoginModalProps) => {
     debouncedSetName(e.target.value);
   };
 
+  const handleButtonClick = (userName: string) => {
+    if (inputRef.current) {
+      inputRef.current.value = userName;
+    }
+    setName(userName);
+    setIsFocused(false);
+  };
+
+  useEffect(() => {
+    setTimeout(() => setIsFocused(true), 200);
+  }, []);
+
+  const data = usersData?.data || [];
+
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
   }, []);
-
-  const data = usersData?.data || [];
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-30">
@@ -51,17 +64,35 @@ const LoginModal = ({ onSubmit }: LoginModalProps) => {
       >
         <DynamicIcon className="w-[118px] h-[116px]" type="snow" />
         <div className="my-[60px] flex-1">
-          <div className="border-b-[1px] border-rgba(0, 0, 0, 0.5) mb-[10px]">
+          <div className="border-b-[1px] border-rgba(0, 0, 0, 0.5) mb-[10px] relative">
             <input
               ref={inputRef}
               className="block border-none placeholder:text-[#A1A1A1] focus:outline-none focus:border-none focus:ring-0 -mt-12"
               placeholder="이름을 입력해주세요."
               onChange={handleInputChange}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setTimeout(() => setIsFocused(false), 200)}
             />
+            {isFocused && data.length !== 0 && (
+              <div className="absolute left-0 top-full w-full bg-white border border-gray-200 rounded-xl mt-1 shadow-lg z-10 py-3 max-h-40 overflow-y-auto">
+                {[...new Set(data.map((user) => user.userName))].map(
+                  (userName) => (
+                    <button
+                      key={userName}
+                      onClick={() => handleButtonClick(userName)}
+                      className="w-full text-left px-4 py-1.5 last:border-none hover:bg-gray-100 text-sm"
+                    >
+                      {userName}
+                    </button>
+                  )
+                )}
+              </div>
+            )}
           </div>
           {data.map(
             (user, index) =>
-              user.userName === name && (
+              user.userName === name &&
+              user.userYear !== 0 && (
                 <Button
                   key={user.userYear}
                   onClick={() => {

@@ -11,7 +11,7 @@ const Window = ({
   giftImage,
   className,
   style,
-  TODAY,
+  today,
   modal,
 }: {
   date: number;
@@ -20,7 +20,7 @@ const Window = ({
   giftImage: React.ReactNode;
   className: string;
   style: React.CSSProperties;
-  TODAY: number;
+  today: number;
   modal: () => void;
 }) => {
   return (
@@ -42,7 +42,7 @@ const Window = ({
             transformOrigin: 'left',
           }}
         >
-          {TODAY === date && (
+          {today === date && (
             <img
               src={Door}
               alt="애니메이션 문"
@@ -65,7 +65,7 @@ const Window = ({
       {isOpen && (
         <div
           onClick={() => {
-            //date 와 TODAY를 비교하면서 거기에 맞는 모달창을 띄워준다.
+            //date 와 today를 비교하면서 거기에 맞는 모달창을 띄워준다.
             //모달 상태를 props로 받아서 처리
             console.log('hi');
             modal();

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import CalendarData, { USER_CALENDAR } from '../components/CalendarData';
+import CalendarData from '../components/CalendarData';
 import useModal from './useModal';
 import { modals } from '@/components/Modals';
+import { useQuery } from '@tanstack/react-query';
+import { fetchUserQA } from '@/services/calendar';
 
-interface CalendarPosition {
+export interface CalendarPosition {
   date: number;
   x: string;
   y: string;
@@ -17,63 +19,90 @@ interface CalendarPosition {
   drawName?: string | null;
 }
 
-const useCalendarInfo = () => {
+const useCalendar = (userId: number) => {
   const [calendarPositions, setCalendarPositions] = useState<
     CalendarPosition[]
   >([]);
   const { openModal } = useModal();
+  const [today, setToday] = useState<number>(new Date().getDate());
 
-  const date = new Date();
-  const TODAY = date.getDate();
-  const handleUnableConfirmModalClick = (date: number) => {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const currentDate = new Date();
+      const currentDay = currentDate.getDate();
+
+      setToday((prevDay) => (prevDay !== currentDay ? currentDay : prevDay));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleUnableConfirmModalClick = () => {
     openModal(modals.UnableConfirmModal, {
-      onSubmit: () => {
-        console.log('비즈니스 로직 처리...');
-      },
-      Day: () => {
-        return date;
-      },
+      onSubmit: () => {},
+      Day: () => today,
     });
   };
 
   const toggleWindow = (date: number) => {
-    if (date > TODAY) {
-      handleUnableConfirmModalClick(date);
-    } else if (date === TODAY) {
+    if (date > today) {
+      handleUnableConfirmModalClick();
+    } else if (date === today) {
       setCalendarPositions((prev) =>
         prev.map((pos) =>
           pos.date === date ? { ...pos, isOpen: !pos.isOpen } : pos
         )
       );
     } else {
-      handleUnableConfirmModalClick(date);
+      handleUnableConfirmModalClick();
     }
   };
 
-  useEffect(() => {
-    //api 요청해서 USER_CALENDAR 가져오기
-    const mergedData = CalendarData.map((calendarItem) => {
-      const matchingUserCalendar = USER_CALENDAR.find(
-        (userCalendar) => userCalendar.calendarDate === calendarItem.date
-      );
+  const {
+    data: userCalendarData,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ['userCalendar', userId],
+    queryFn: () => fetchUserQA(userId),
+    enabled: !!userId,
+  });
 
-      if (matchingUserCalendar) {
+  useEffect(() => {
+    if (userCalendarData) {
+      const mergedData = CalendarData.map((calendarItem) => {
+        const matchingUserCalendar = userCalendarData.data.find(
+          (userCalendar) => userCalendar.calendarDate === calendarItem.date
+        );
+
+        if (matchingUserCalendar) {
+          return {
+            ...calendarItem,
+            calendarId: matchingUserCalendar.calendarId,
+            qa: matchingUserCalendar.qa,
+            drawName: matchingUserCalendar.drawName,
+            isOpen: true,
+          };
+        }
+
         return {
           ...calendarItem,
-          calendarId: matchingUserCalendar.calendarId,
-          qa: matchingUserCalendar.qa,
-          drawName: matchingUserCalendar.drawName,
-          isOpen: true,
+          isOpen: false,
         };
-      }
+      });
 
-      return calendarItem;
-    });
+      setCalendarPositions(mergedData);
+    }
+  }, [userCalendarData]);
 
-    setCalendarPositions(mergedData);
-  }, []);
-
-  return { calendarPositions, setCalendarPositions, toggleWindow, TODAY };
+  return {
+    calendarPositions,
+    setCalendarPositions,
+    toggleWindow,
+    today,
+    isLoading,
+    isError,
+  };
 };
 
-export default useCalendarInfo;
+export default useCalendar;
