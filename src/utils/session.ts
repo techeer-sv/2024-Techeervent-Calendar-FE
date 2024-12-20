@@ -17,7 +17,6 @@ export const session = {
       try {
         return JSON.parse(serializedValue) as UserValueMap[K];
       } catch {
-        console.error(`Failed to parse sessionStorage value for key: ${key}`);
         return null;
       }
     }
