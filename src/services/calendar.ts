@@ -2,8 +2,8 @@ import axiosClient from '@/config/axios.config';
 import {
   GetUserQAResponse,
   GetAnswerCountResponse,
+  SubmitAttendanceAndPrize,
 } from '@/types/api/calendar';
-import { GetRandomQuestionResponse } from '@/types/api/question';
 
 export const fetchUserQA = async (
   userId: number
@@ -13,17 +13,27 @@ export const fetchUserQA = async (
 };
 
 export const searchUserQA = async (
-  page: number,
+  offset: number,
   limit: number,
   author: string
-): Promise<GetRandomQuestionResponse> => {
+): Promise<GetUserQAResponse> => {
   const response = await axiosClient.get('/calendar/answer', {
-    params: { page, limit, author },
+    params: { offset, limit, author },
   });
   return response.data;
 };
 
 export const fetchAnswerCount = async (): Promise<GetAnswerCountResponse> => {
   const response = await axiosClient.get('/calendar/answer/count');
+  return response.data;
+};
+
+export const submitAttendanceAndPrize = async (data: {
+  userId: number;
+  calendarDate: number;
+  questionId: number;
+  calendarAnswer: string;
+}): Promise<SubmitAttendanceAndPrize> => {
+  const response = await axiosClient.post('/calendar', data);
   return response.data;
 };

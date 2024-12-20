@@ -65,9 +65,6 @@ const Window = ({
       {isOpen && (
         <div
           onClick={() => {
-            //date 와 today를 비교하면서 거기에 맞는 모달창을 띄워준다.
-            //모달 상태를 props로 받아서 처리
-            console.log('hi');
             modal();
           }}
         >

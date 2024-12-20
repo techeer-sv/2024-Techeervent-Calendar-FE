@@ -8,3 +8,9 @@ export interface GetRandomQuestionResponse {
     meta: Meta;
   };
 }
+
+export interface GetRandomResponse {
+  status: number;
+  message: string;
+  data: QA;
+}
