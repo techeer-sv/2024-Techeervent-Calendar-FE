@@ -1,13 +1,14 @@
 import { Button } from '@/components/ui/button';
 import QandA from '@/assets/images/QandA.png';
-import React from 'react';
 import { motion } from 'framer-motion';
+import { CalendarPosition } from '@/pages/Home/hooks/useCalendar';
 
 interface QuestionModalProps {
   onClose: () => void;
+  calendar: CalendarPosition;
 }
 
-const QuestionCheckModal = ({ onClose }: QuestionModalProps) => {
+const QuestionCheckModal = ({ onClose, calendar }: QuestionModalProps) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <motion.div
@@ -23,30 +24,10 @@ const QuestionCheckModal = ({ onClose }: QuestionModalProps) => {
       >
         <img className="w-[80px] h-[70px]" src={QandA} />
         <h1 className="font-semibold text-[14px] mt-[32px] mb-[10px]">
-          Q) 2024년, 나를 가장 많이 웃게 한 일은?
+          Q) {calendar.qa?.question}
         </h1>
         <div className="flex-grow overflow-y-scroll w-full p-2 text-[13px] rounded-[10px] bg-[#F3F3F3]  box-border leading-[1.1]">
-          코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음
-          어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서
-          난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구
-          코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음
-          어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서
-          난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구
-          코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음
-          어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서
-          난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구
-          코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음
-          어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서
-          난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구
-          코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음
-          어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서
-          난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구
-          코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음
-          어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서
-          난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구
-          코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음
-          어쩌구 코드에서 난생처음 어쩌구 코드에서 난생처음 어쩌구 코드에서
-          난생처음 어쩌구
+          {calendar.qa?.answer}
         </div>
         <Button
           onClick={onClose}

@@ -20,3 +20,11 @@ export interface GetAnswerCountResponse {
     answerCount: number;
   };
 }
+
+export interface SubmitAttendanceAndPrize {
+  status: number;
+  message: string;
+  data: {
+    drawName: string;
+  };
+}

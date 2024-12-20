@@ -4,6 +4,8 @@ import useCalendar from '../hooks/useCalendar';
 import Window from './Window';
 import useModal from '../hooks/useModal';
 import { session } from '@/utils/session';
+import { CalendarPosition } from '../hooks/useCalendar';
+import { fetchRandomQuestion } from '@/services/question';
 
 const Calendar = () => {
   const { calendarPositions, toggleWindow, today } = useCalendar(
@@ -11,18 +13,30 @@ const Calendar = () => {
   );
   const { openModal } = useModal();
 
-  const handlenQuestionModalClick = () => {
+  const handlenQuestionModalClick = async (date: number) => {
+    const questionData = await fetchRandomQuestion(
+      session.get('userId') as number
+    );
+
     openModal(modals.QuestionModal, {
-      onSubmit: () => {
-        console.log('비즈니스 로직 처리...');
-      },
-      onClose: () => {},
+      onSubmit: () => {},
+      date,
+      questionData,
     });
   };
 
-  const handleQuestionCheckModalClick = () => {
+  const handleQuestionCheckModalClick = ({
+    qa,
+    date,
+    x,
+    y,
+    isOpen,
+    giftImage,
+  }: CalendarPosition) => {
+    console.log('qa', qa);
     openModal(modals.QuestionCheckModal, {
       onClose: () => {},
+      calendar: { qa, date, x, y, isOpen, giftImage },
     });
   };
 
@@ -34,12 +48,23 @@ const Calendar = () => {
           key={date}
           date={date}
           isOpen={isOpen}
-          onClick={() => date === today && toggleWindow(date)}
+          onClick={() => toggleWindow(date)}
           giftImage={giftImage}
           style={{ top: y, left: x }}
           className="absolute w-[18%] object-cover"
           today={today}
-          modal={qa ? handleQuestionCheckModalClick : handlenQuestionModalClick}
+          modal={() =>
+            qa
+              ? handleQuestionCheckModalClick({
+                  qa,
+                  date,
+                  x,
+                  y,
+                  isOpen,
+                  giftImage,
+                })
+              : handlenQuestionModalClick(date)
+          }
         />
       ))}
     </div>
