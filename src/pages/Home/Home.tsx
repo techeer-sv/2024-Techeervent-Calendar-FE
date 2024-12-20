@@ -25,9 +25,9 @@ const Home = () => {
   }, [windowSize]);
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-full min-h-screen">
+    <div className="relative flex flex-col items-center min-h-screen h-full">
       <Snow />
-      <div className="relative">
+      <div className="absolute top-0 left-0">
         <img src={Leaf} alt="나뭇잎" />
         <img
           src={CrownButton}
@@ -38,7 +38,7 @@ const Home = () => {
         <WinningList />
       </div>
 
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center mt-[15vh]">
         <span className="text-base text-white md:text-lg font-pretendard">
           매일이 설레는 고예진님의 선물!
         </span>
@@ -46,16 +46,17 @@ const Home = () => {
       </div>
 
       <Calendar />
+      <div className="w-full sm:h-[350px] md:h-[450px]" />
 
       <img src={SnowField} alt="눈" className="absolute bottom-0" />
 
-      <div className="relative flex w-full h-full mb-6 max-h-84">
+      <div className="absolute bottom-0 flex w-full max-h-84">
         <div className="relative z-10 basis-[50%]">
           <AnswerList />
           <QnaCounter />
         </div>
 
-        <div className="relative flex flex-col justify-start basis-[50%]">
+        <div className="relative flex flex-col justify-start basis-[50%] mb-5">
           <GiftItem />
 
           <div className="flex flex-col mb-3 text-white sm:mt-5 md:mb-12">

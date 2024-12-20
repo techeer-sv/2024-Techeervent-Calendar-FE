@@ -11,14 +11,7 @@ const AnswerList = () => {
     });
   };
 
-  return (
-    <img
-      src={Tree}
-      alt="크리스마스 트리"
-      className="absolute bottom-0"
-      onClick={handleTreeClick}
-    />
-  );
+  return <img src={Tree} alt="크리스마스 트리" onClick={handleTreeClick} />;
 };
 
 export default AnswerList;
