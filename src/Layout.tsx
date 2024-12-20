@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import SpriteSheet from '@/components/icon/SpriteSheet'
+import SpriteSheet from '@/components/icon/SpriteSheet';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
