@@ -15,22 +15,22 @@ const gifts = [
   {
     src: Ring2,
     alt: '선물2',
-    name: '스타벅스 아메리카노',
+    name: '컬리 캘린더',
     num: '(3명)',
     width: 'w-[85%] md:w-[81%]',
   },
   {
     src: Ring3,
     alt: '선물3',
-    name: '비타민 젤리',
-    num: '(3명)',
+    name: '비타500 100ml',
+    num: '(30명)',
     width: 'w-[85%] md:w-[97%]',
   },
   {
     src: Ring4,
     alt: '선물4',
-    name: '비타500 100ml',
-    num: '(10명)',
+    name: '현작자 후원 상품',
+    num: '(n명)',
     width: 'w-[85%] md:w-[90%]',
   },
 ];
