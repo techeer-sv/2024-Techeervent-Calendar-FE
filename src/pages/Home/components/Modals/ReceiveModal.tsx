@@ -1,12 +1,12 @@
 import { Button } from '@/components/ui/button';
-import React from 'react';
 import giftBox from '@/assets/images/giftBox.png';
 import { motion } from 'framer-motion';
 interface ReceiveModalProps {
   onSubmit: () => void;
+  draw: string;
 }
 
-const ReceiveModal = ({ onSubmit }: ReceiveModalProps) => {
+const ReceiveModal = ({ onSubmit, draw }: ReceiveModalProps) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <motion.div
@@ -24,10 +24,10 @@ const ReceiveModal = ({ onSubmit }: ReceiveModalProps) => {
 
         <h1 className="my-[43px] text-[18px] text-center font-medium">
           축하합니다! <br />
-          랜덤 상품에 당첨되었습니다!🎉
+          랜덤 상품에 당첨되었습니다! 🎉
         </h1>
         <span className="mb-[43px] font-bold text-[16px] text-redText flex-1">
-          스타벅스 10,000원 상품권
+          {draw}
         </span>
         <Button
           onClick={onSubmit}

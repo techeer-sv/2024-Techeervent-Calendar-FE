@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/button';
-import React from 'react';
 import bomb from '@/assets/images/bomb.png';
 import { motion } from 'framer-motion';
 interface NoReceiveModalProps {
@@ -26,7 +25,7 @@ const NoReceiveModal = ({ onSubmit }: NoReceiveModalProps) => {
           당첨되지 않았습니다.
         </h1>
         <span className="mb-[43px] text-[14px] flex-1 flex items-center justify-center">
-          내일 다시 도전해주세요! 행운을 빌어요!🍀
+          내일 다시 도전해주세요! 행운을 빌어요! 🍀
         </span>
         <Button
           onClick={onSubmit}
