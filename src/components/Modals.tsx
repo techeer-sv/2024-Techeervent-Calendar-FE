@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { ModalsDispatchContext, ModalsStateContext } from './ModalsContext';
 import LoginModal from '@/pages/Home/components/Modals/LoginModal';
 import NoReceiveModal from '@/pages/Home/components/Modals/NoReceiveModal';
