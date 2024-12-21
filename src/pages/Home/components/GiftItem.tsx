@@ -10,14 +10,14 @@ const gifts = [
     alt: '선물1',
     name: '컬리 캘린더',
     num: '(3명)',
-    width: 'w-[85%] md:w-[94%]',
+    width: 'w-[85%] md:w-[100%]',
   },
   {
     src: Ring2,
     alt: '선물2',
     name: '컬리 상품권 1만원',
     num: '(3명)',
-    width: 'w-[85%] md:w-[100%]',
+    width: 'w-[85%] md:w-[85%]',
   },
   {
     src: Ring3,
