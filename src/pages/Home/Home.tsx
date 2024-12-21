@@ -2,7 +2,6 @@ import Leaf from '../../../public/assets/Leaf.svg';
 import Logo from '../../../public/assets/Logo.svg';
 import CrownButton from '../../../public/assets/CrownBtn.svg';
 import SnowField from '../../../public/assets/SnowField.svg';
-import CrownButton from '../../../public/assets/CrownBtn.svg';
 import Calendar from './components/Calendar';
 import QnaCounter from './components/QnaCounter';
 import useWindowSize from './hooks/useWindowSize';
