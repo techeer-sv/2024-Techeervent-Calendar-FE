@@ -13,8 +13,8 @@ const WinningList = () => {
       try {
         const response = await fetchWinners();
         setWinner(response);
-      } catch (error) {
-        console.log('당첨자 리스트 조회 에러:', error);
+      } catch {
+        return null;
       }
     };
     getWinningList();

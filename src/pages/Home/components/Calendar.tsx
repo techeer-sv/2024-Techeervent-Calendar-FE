@@ -31,7 +31,6 @@ const Calendar = () => {
     isOpen,
     giftImage,
   }: CalendarPosition) => {
-    console.log('qa', qa);
     openModal(modals.QuestionCheckModal, {
       onClose: () => {},
       calendar: { qa, date, x, y, isOpen, giftImage },
