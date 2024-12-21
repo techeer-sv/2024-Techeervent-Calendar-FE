@@ -19,7 +19,7 @@ export interface CalendarPosition {
   drawName?: string | null;
 }
 
-const useCalendar = (userId: number) => {
+const useCalendar = (userId: string) => {
   const [calendarPositions, setCalendarPositions] = useState<
     CalendarPosition[]
   >([]);

@@ -23,7 +23,11 @@ const Home = () => {
   const [userName, setUserName] = useState(session.get('userName'));
 
   const isSessionMissing = useCallback(() => {
-    return !session.get('userId') || !session.get('userName');
+    return (
+      !session.get('userId') ||
+      !session.get('userName') ||
+      session.get('userId') === ''
+    );
   }, []);
 
   const handleLoginModalClick = useCallback(() => {

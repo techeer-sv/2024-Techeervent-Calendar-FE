@@ -11,11 +11,11 @@ export const session = {
     sessionStorage.setItem(key, serializedValue);
   },
 
-  get<K extends UserKey>(key: K): UserValueMap[K] | null {
+  get<K extends keyof User>(key: K): User[K] | null {
     const serializedValue = sessionStorage.getItem(key);
     if (serializedValue) {
       try {
-        return JSON.parse(serializedValue) as UserValueMap[K];
+        return JSON.parse(serializedValue) as User[K];
       } catch {
         return null;
       }
