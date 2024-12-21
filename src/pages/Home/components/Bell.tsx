@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import bell_F from '../../../assets/images/bell_F.svg';
 import bell_G from '../../../assets/images/bell_G.svg';
 import bell_A from '../../../assets/images/bell_A.svg';

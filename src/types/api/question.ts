@@ -12,5 +12,8 @@ export interface GetRandomQuestionResponse {
 export interface GetRandomResponse {
   status: number;
   message: string;
-  data: QA;
+  data: {
+    questionId: number;
+    questionContent: string;
+  };
 }
