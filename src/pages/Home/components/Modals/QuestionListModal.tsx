@@ -6,7 +6,7 @@ import Question from '@/assets/images/Question.svg';
 import InfiniteScroll from 'react-infinite-scroller';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { searchUserQA } from '@/services/calendar';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { QA } from '@/types/common';
 
 interface QuestionListModalProps {
@@ -18,7 +18,8 @@ const QuestionListModal = ({ onClose }: QuestionListModalProps) => {
   const [author, setAuthor] = useState('');
   const [selectedQA, setSelectedQA] = useState<QA | null>(null);
 
-  const fetchAnswers = async ({ pageParam }: { pageParam: number }) => {
+  const fetchAnswers = async ({ pageParam = 0 }: { pageParam: number }) => {
+    console.log(`Fetching page: ${pageParam}`);
     try {
       const response = await searchUserQA(pageParam, 10, author);
       return response;
@@ -40,6 +41,7 @@ const QuestionListModal = ({ onClose }: QuestionListModalProps) => {
     queryFn: fetchAnswers,
     initialPageParam: 0,
     getNextPageParam: (lastPage) => {
+      if (!lastPage) return undefined;
       const currentPage = lastPage.data.meta.currentPage;
       const totalPages = lastPage.data.meta.totalPages;
       return currentPage < totalPages ? currentPage + 1 : undefined;
@@ -106,10 +108,12 @@ const QuestionListModal = ({ onClose }: QuestionListModalProps) => {
               <div>데이터를 불러오는 중에 오류가 발생했습니다.</div>
             ) : (
               <InfiniteScroll
-                pageStart={0}
-                loadMore={fetchNextPage}
-                hasMore={hasNextPage || isFetchingNextPage}
-                threshold={100}
+                loadMore={() => fetchNextPage()}
+                hasMore={hasNextPage && !isFetchingNextPage}
+                useWindow={false}
+                getScrollParent={() =>
+                  document.querySelector('overflow-y-auto')
+                }
               >
                 {data?.pages.map((page) =>
                   page?.data.answers.map((qa, index) => (
