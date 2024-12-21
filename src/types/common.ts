@@ -17,9 +17,3 @@ export interface Meta {
   totalPages: number; // 총 페이지 수
   currentPage: number; // 현재 페이지 번호
 }
-
-export type Drawlist =
-  | '마켓컬리 3만원 금액권'
-  | '문화상품권'
-  | '공차 기프티콘'
-  | '스타벅스 기프티콘';

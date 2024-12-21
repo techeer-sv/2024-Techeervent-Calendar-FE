@@ -1,9 +1,9 @@
-import { User, Drawlist } from '@/types/common';
+import { User } from '@/types/common';
 
 interface Winner {
   winnerId: number;
   user: User;
-  drawName: Drawlist;
+  drawName: string;
 }
 
 export interface GetWinnersResponse {
