@@ -60,12 +60,26 @@
     margin: 0; /* 기본 여백 제거 */
   }
 
-  * {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
   *::-webkit-scrollbar {
     display: none;
+  }
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f4f4f4;
+    border-radius: 3px;
   }
 }
 

@@ -75,7 +75,7 @@ const QuestionModal = ({
         </h1>
         <textarea
           placeholder="한 번 제출하면 수정이 불가능하니, 신중하게 작성해 주세요."
-          className="w-full h-full placeholder:text-[#A1A1A1] overflow-y-scroll placeholder:leading-[1.1] p-2 text-[12px] placeholder:text-[12px] rounded-[10px] mb-[32px] box-border resize-none leading-[1.1] border-[1px] border-black focus:outline-none focus:ring-0 focus:border-black"
+          className="w-full h-full placeholder:text-[#A1A1A1] overflow-y-auto placeholder:leading-[1.1] p-2 text-[12px] placeholder:text-[12px] rounded-[10px] mb-[32px] box-border resize-none leading-[1.1] border-[1px] border-black focus:outline-none focus:ring-0 focus:border-black"
           value={answer}
           onChange={(e) => setAnswer(e.target.value)}
         />
