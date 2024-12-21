@@ -58,7 +58,7 @@ const Window = ({
       />
       <span
         onClick={onClick}
-        className="absolute inset-x-0 top-[37%] flex justify-center items-center text-white text-[220%] font-continuous z-20 cursor-pointer"
+        className="absolute inset-x-0 top-[27%] flex justify-center items-center text-white text-[260%] font-birthstone z-20 cursor-pointer"
       >
         {!isOpen && date}
       </span>
