@@ -13,12 +13,12 @@ export const fetchUserQA = async (
 };
 
 export const searchUserQA = async (
-  offset: number,
+  page: number,
   limit: number,
   author: string
 ): Promise<GetRandomQuestionResponse> => {
   const response = await axiosClient.get('/calendar/answer', {
-    params: { offset, limit, author },
+    params: { page, limit, author },
   });
   return response.data;
 };
