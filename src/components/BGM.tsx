@@ -47,7 +47,7 @@ const BGM = () => {
   };
 
   return (
-    <div className="fixed top-8 right-8">
+    <div className="fixed top-8 left-8 z-50">
       <button className="w-8 h-8" onClick={handleVolumeClick}>
         <img src={volumeSrcMap[volume]} alt="volume" />
       </button>
