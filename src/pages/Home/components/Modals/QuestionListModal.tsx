@@ -6,7 +6,7 @@ import Question from '@/assets/images/Question.svg';
 import InfiniteScroll from 'react-infinite-scroller';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { searchUserQA } from '@/services/calendar';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { QA } from '@/types/common';
 
 interface QuestionListModalProps {
@@ -16,7 +16,6 @@ interface QuestionListModalProps {
 const QuestionListModal = ({ onClose }: QuestionListModalProps) => {
   const { openModal } = useModal();
   const [author, setAuthor] = useState('');
-  const [selectedQA, setSelectedQA] = useState<QA | null>(null);
 
   const fetchAnswers = async ({ pageParam = 0 }: { pageParam: number }) => {
     console.log(`Fetching page: ${pageParam}`);
@@ -53,7 +52,6 @@ const QuestionListModal = ({ onClose }: QuestionListModalProps) => {
   };
 
   const handleQuestionDetailListModalClick = (qa: QA) => {
-    setSelectedQA(qa);
     openModal(modals.QuestionDetailListModal, {
       onClose: () => console.log('hi'),
       data: qa,
