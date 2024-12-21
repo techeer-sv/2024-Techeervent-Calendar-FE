@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CalendarData from '../components/CalendarData';
 import useModal from './useModal';
 import { modals } from '@/components/Modals';

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useContext } from 'react';
 import { ModalsDispatchContext, ModalsStateContext } from './ModalsContext';
 import LoginModal from '@/pages/Home/components/Modals/LoginModal';
@@ -38,7 +37,7 @@ const Modals = () => {
     <AnimatePresence>
       {openedModals.map((modal, index) => {
         const { Component, props } = modal;
-        const { onSubmit, ...restProps } = props;
+        const { onSubmit } = props;
 
         const onClose = () => close(Component);
 
