@@ -26,7 +26,7 @@ const QuestionCheckModal = ({ onClose, calendar }: QuestionModalProps) => {
         <h1 className="font-semibold text-[14px] mt-[32px] mb-[10px]">
           Q) {calendar.qa?.question}
         </h1>
-        <div className="flex-grow overflow-y-scroll w-full p-2 text-[13px] rounded-[10px] bg-[#F3F3F3]  box-border leading-[1.1]">
+        <div className="flex-grow overflow-auto w-full p-2 text-[13px] rounded-[10px] bg-[#F3F3F3]  box-border leading-[1.1]">
           {calendar.qa?.answer}
         </div>
         <Button
