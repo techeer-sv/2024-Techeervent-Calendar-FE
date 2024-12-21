@@ -10,8 +10,8 @@ const QnaCounter = () => {
       try {
         const response = await fetchAnswerCount();
         setAnswerCount(response.data.answerCount);
-      } catch (error) {
-        console.log('답변 개수 응답 에러:', error);
+      } catch {
+        return null;
       }
     };
     getAnswerCount();

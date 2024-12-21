@@ -68,7 +68,7 @@ const Home = () => {
 
       <div className="flex flex-col items-center justify-center mt-[15vh]">
         <span className="text-base text-white md:text-lg font-pretendard">
-          매일이 설레는 {userName ? `${userName}님 ` : ''}선물!
+          매일이 설레는 {userName ? `${userName}님의 ` : ''}선물!
         </span>
         <img src={Logo} alt="테커벤트 캘린더 로고" className="w-[95%] mb-4" />
       </div>

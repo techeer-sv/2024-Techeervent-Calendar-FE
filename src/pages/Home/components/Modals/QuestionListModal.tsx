@@ -18,12 +18,10 @@ const QuestionListModal = ({ onClose }: QuestionListModalProps) => {
   const [author, setAuthor] = useState('');
 
   const fetchAnswers = async ({ pageParam = 0 }: { pageParam: number }) => {
-    console.log(`Fetching page: ${pageParam}`);
     try {
       const response = await searchUserQA(pageParam, 10, author);
       return response;
-    } catch (error) {
-      console.error('Error fetching answers:', error);
+    } catch {
       return null;
     }
   };
@@ -53,7 +51,7 @@ const QuestionListModal = ({ onClose }: QuestionListModalProps) => {
 
   const handleQuestionDetailListModalClick = (qa: QA) => {
     openModal(modals.QuestionDetailListModal, {
-      onClose: () => console.log('hi'),
+      onClose: () => {},
       data: qa,
     });
   };
