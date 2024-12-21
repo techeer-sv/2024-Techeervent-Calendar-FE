@@ -173,10 +173,10 @@ const Dino: React.FC = () => {
   }, [gameStarted]);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col items-center justify-center">
       <h1>Score: {score}</h1>
       {!gameStarted && (
-        <div className="flex flex-col justify-center items-center text-black text-2xl">
+        <div className="flex flex-col items-center justify-center text-2xl text-black">
           <img src={Santa} alt="산타" className="w-32 h-32 my-10" />
           Press any key to start
         </div>
