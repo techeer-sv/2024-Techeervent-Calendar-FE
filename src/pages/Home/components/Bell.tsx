@@ -21,6 +21,8 @@ const Bell = () => {
     {}
   );
 
+  console.log(shakingBells);
+
   const handleShake = (bellKey: string, sound: string) => {
     setShakingBells((prev) => ({ ...prev, [bellKey]: true }));
     setTimeout(() => {
@@ -61,25 +63,29 @@ const bells = [
   {
     sound: 'F',
     src: bell_F,
-    className: 'absolute w-16 h-13 top-6 left-12',
+    className:
+      'absolute w-13 h-10 top-[15.04%] left-[8.08%] md:w-[70px]  md:h-[65px]',
     key: 'bell_F',
   },
   {
     sound: 'G',
     src: bell_G,
-    className: 'absolute w-14 h-13 top-2 left-44',
+    className:
+      'absolute w-12 h-9 top-[5.35%] left-[27.64%] md:w-[60px] md:h-[50px]',
     key: 'bell_G',
   },
   {
     sound: 'A',
     src: bell_A,
-    className: 'absolute w-14 h-13 top-6 left-72',
+    className:
+      'absolute w-12 h-10 top-[15.04%] left-[50.5%] md:w-[60px] md:h-[55px]',
     key: 'bell_A',
   },
   {
     sound: 'C',
     src: bell_C,
-    className: 'absolute w-14 h-13 top-2 left-96',
+    className:
+      'absolute w-12 h-9 top-[5.35%] left-[65.67%] md:w-[60px] md:h-[55px]',
     key: 'bell_C',
   },
 ];

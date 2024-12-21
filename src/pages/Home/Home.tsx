@@ -1,5 +1,6 @@
 import Leaf from '../../../public/assets/Leaf.svg';
 import Logo from '../../../public/assets/Logo.svg';
+import CrownButton from '../../../public/assets/CrownBtn.svg';
 import SnowField from '../../../public/assets/SnowField.svg';
 import CrownButton from '../../../public/assets/CrownBtn.svg';
 import Calendar from './components/Calendar';
@@ -53,7 +54,7 @@ const Home = () => {
   }, [windowSize]);
 
   return (
-    <div className="relative flex flex-col items-center min-h-screen h-full">
+    <div className="relative flex flex-col items-center h-full max-w-full min-h-screen">
       <Snow />
       <div className="absolute top-0 left-0">
         <img src={Leaf} alt="나뭇잎" />
