@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from '@/components/ui/button';
 import QandA from '@/assets/images/QandA.png';
 import { motion } from 'framer-motion';
@@ -8,11 +7,12 @@ import { useState } from 'react';
 import { modals } from '@/components/Modals';
 import useModal from '@/pages/Home/hooks/useModal';
 import { useQueryClient } from '@tanstack/react-query';
+import { GetRandomResponse } from '@/types/api/question';
 
 interface QuestionModalProps {
   onSubmit: () => void;
   date: number;
-  questionData: any;
+  questionData: GetRandomResponse;
 }
 
 const QuestionModal = ({

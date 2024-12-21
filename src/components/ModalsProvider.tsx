@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, ComponentType, useMemo } from 'react';
+import { useState, ReactNode, ComponentType, useMemo } from 'react';
 import {
   ModalItem,
   ModalsDispatch,
