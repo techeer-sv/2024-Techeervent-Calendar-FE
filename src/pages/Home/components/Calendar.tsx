@@ -9,14 +9,12 @@ import { fetchRandomQuestion } from '@/services/question';
 
 const Calendar = () => {
   const { calendarPositions, toggleWindow, today } = useCalendar(
-    session.get('userId') as number
+    session.get('userId') || ''
   );
   const { openModal } = useModal();
 
   const handlenQuestionModalClick = async (date: number) => {
-    const questionData = await fetchRandomQuestion(
-      session.get('userId') as number
-    );
+    const questionData = await fetchRandomQuestion(session.get('userId') || '');
 
     openModal(modals.QuestionModal, {
       onSubmit: () => {},

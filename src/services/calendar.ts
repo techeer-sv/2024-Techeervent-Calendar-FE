@@ -7,7 +7,7 @@ import {
 import { GetRandomQuestionResponse } from '@/types/api/question';
 
 export const fetchUserQA = async (
-  userId: number
+  userId: string
 ): Promise<GetUserQAResponse> => {
   const response = await axiosClient.get(`/calendar/${userId}`);
   return response.data;
@@ -30,7 +30,7 @@ export const fetchAnswerCount = async (): Promise<GetAnswerCountResponse> => {
 };
 
 export const submitAttendanceAndPrize = async (data: {
-  userId: number;
+  userId: string;
   calendarDate: number;
   questionId: number;
   calendarAnswer: string;

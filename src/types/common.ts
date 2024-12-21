@@ -1,7 +1,7 @@
 export interface User {
   userName: string;
   userYear: number;
-  userId: number;
+  userId: string;
 }
 
 export interface QA {

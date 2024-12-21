@@ -27,13 +27,13 @@ const QuestionModal = ({
   const handleSubmit = async () => {
     try {
       const res = await submitAttendanceAndPrize({
-        userId: session.get('userId') as number,
+        userId: session.get('userId') || '',
         calendarDate: date,
         questionId: questionData.data.questionId,
         calendarAnswer: answer,
       });
 
-      const userId = session.get('userId') as number;
+      const userId = session.get('userId') || '';
       if (userId) {
         queryClient.invalidateQueries({
           queryKey: ['userCalendar', userId],
