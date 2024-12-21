@@ -72,7 +72,7 @@ const Dino: React.FC = () => {
       }
 
       draw() {
-        ctx.drawImage(img1, this.x, this.y, this.width, this.height);
+        ctx?.drawImage(img1, this.x, this.y, this.width, this.height);
       }
     }
 
