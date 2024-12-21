@@ -1,8 +1,6 @@
-import { Drawlist } from '@/types/common';
-
 interface Draw {
   drawId: number;
-  drawName: Drawlist;
+  drawName: string;
   drawTotal: number;
 }
 
