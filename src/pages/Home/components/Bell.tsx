@@ -21,8 +21,6 @@ const Bell = () => {
     {}
   );
 
-  console.log(shakingBells);
-
   const handleShake = (bellKey: string, sound: string) => {
     setShakingBells((prev) => ({ ...prev, [bellKey]: true }));
     setTimeout(() => {
