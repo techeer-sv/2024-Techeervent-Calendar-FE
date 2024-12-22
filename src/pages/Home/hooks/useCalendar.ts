@@ -37,16 +37,16 @@ const useCalendar = (userId: string) => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleUnableConfirmModalClick = () => {
+  const handleUnableConfirmModalClick = (date: number) => {
     openModal(modals.UnableConfirmModal, {
       onSubmit: () => {},
-      Day: () => today,
+      Day: () => date,
     });
   };
 
   const toggleWindow = (date: number) => {
     if (date > today) {
-      handleUnableConfirmModalClick();
+      handleUnableConfirmModalClick(date);
     } else if (date === today) {
       setCalendarPositions((prev) =>
         prev.map((pos) =>
@@ -54,7 +54,7 @@ const useCalendar = (userId: string) => {
         )
       );
     } else {
-      handleUnableConfirmModalClick();
+      handleUnableConfirmModalClick(date);
     }
   };
 
