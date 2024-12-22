@@ -3,7 +3,7 @@ import Logo from '../../../public/assets/Logo.svg';
 import SnowField from '../../../public/assets/SnowField.svg';
 import Calendar from './components/Calendar';
 import QnaCounter from './components/QnaCounter';
-import { useCallback, useEffect, useState } from 'react';
+import { Suspense, useCallback, useEffect, useState } from 'react';
 import GiftItem from './components/GiftItem';
 import WinningList from './components/WinningList';
 import AnswerList from './components/AnswerList';
@@ -68,7 +68,9 @@ const Home = () => {
       <div className="absolute bottom-0 flex w-full max-h-84">
         <div className="relative z-10 basis-[50%]">
           <AnswerList />
-          <QnaCounter />
+          <Suspense fallback={''}>
+            <QnaCounter />
+          </Suspense>
         </div>
 
         <div className="relative flex flex-col justify-start basis-[50%] mb-5">
