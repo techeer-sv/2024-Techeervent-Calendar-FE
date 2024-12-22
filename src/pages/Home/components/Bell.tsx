@@ -43,13 +43,13 @@ const Bell = () => {
   return (
     <div>
       {bells.map(({ src, className, key, sound }) => (
-        <img
+        <button
           key={key}
-          src={src}
-          alt="징글벨"
           className={`cursor-pointer ${className} ${shakingBells[key] ? 'shake' : ''}`}
           onClick={() => handleShake(key, sound)}
-        />
+        >
+          <img src={src} alt="징글벨" />
+        </button>
       ))}
     </div>
   );
