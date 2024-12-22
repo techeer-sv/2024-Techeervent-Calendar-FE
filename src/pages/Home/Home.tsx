@@ -1,6 +1,5 @@
 import Leaf from '../../../public/assets/Leaf.svg';
 import Logo from '../../../public/assets/Logo.svg';
-import CrownButton from '../../../public/assets/CrownBtn.svg';
 import SnowField from '../../../public/assets/SnowField.svg';
 import Calendar from './components/Calendar';
 import QnaCounter from './components/QnaCounter';
@@ -57,11 +56,6 @@ const Home = () => {
       <Snow />
       <div className="absolute top-0 left-0">
         <img src={Leaf} alt="나뭇잎" />
-        <img
-          src={CrownButton}
-          alt="당첨자 리스트 버튼"
-          className="absolute right-7 top-5"
-        />
         <Bell />
         <WinningList />
       </div>
