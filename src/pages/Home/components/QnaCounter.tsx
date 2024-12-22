@@ -14,7 +14,7 @@ const QnaCounter = () => {
       <img src={Board} alt="질의응답 카운트" />
       <span className="absolute right-[24%] top-[24%] text-yellowText sm:text-[14px] md:text-[18px] lg:text-[20px] font-jua rotate-[23deg] z-10">
         {isFetching && 'Loading...'}
-        {!isFetching && data?.data.answerCount}
+        {!isFetching && data && data.data.answerCount}
       </span>
     </div>
   );
