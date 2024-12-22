@@ -42,12 +42,23 @@ const QuestionModal = ({
 
       if (res.data.drawName) {
         openModal(modals.ReceiveModal, {
-          onSubmit: () => {},
+          onSubmit: () => {
+            Promise.all([
+              queryClient.invalidateQueries({ queryKey: ['winners'] }),
+              queryClient.invalidateQueries({ queryKey: ['userQA'] }),
+              queryClient.invalidateQueries({ queryKey: ['answerCount'] }),
+            ]);
+          },
           draw: res.data.drawName,
         });
       } else {
         openModal(modals.NoReceiveModal, {
-          onSubmit: () => {},
+          onSubmit: () => {
+            Promise.all([
+              queryClient.invalidateQueries({ queryKey: ['userQA'] }),
+              queryClient.invalidateQueries({ queryKey: ['answerCount'] }),
+            ]);
+          },
         });
       }
       onSubmit();
