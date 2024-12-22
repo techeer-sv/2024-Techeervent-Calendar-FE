@@ -3,7 +3,6 @@ import Logo from '../../../public/assets/Logo.svg';
 import SnowField from '../../../public/assets/SnowField.svg';
 import Calendar from './components/Calendar';
 import QnaCounter from './components/QnaCounter';
-import useWindowSize from './hooks/useWindowSize';
 import { useCallback, useEffect, useState } from 'react';
 import GiftItem from './components/GiftItem';
 import WinningList from './components/WinningList';
@@ -17,8 +16,6 @@ import { session } from '@/utils/session';
 
 const Home = () => {
   const { openModal } = useModal();
-  const [windowSize] = useWindowSize();
-  const [width, setWidth] = useState(false);
   const [userName, setUserName] = useState(session.get('userName'));
 
   const isSessionMissing = useCallback(() => {
@@ -46,10 +43,6 @@ const Home = () => {
   useEffect(() => {
     consoleArt();
   }, []);
-
-  useEffect(() => {
-    setWidth(windowSize.width <= 500);
-  }, [windowSize]);
 
   return (
     <div className="relative flex flex-col items-center h-full max-w-full min-h-screen">
@@ -95,11 +88,7 @@ const Home = () => {
             </span>
           </div>
 
-          <div
-            className={`flex flex-col justify-start ml-4 ${
-              width ? 'opacity-0' : 'opacity-100'
-            } transition-opacity duration-300`}
-          >
+          <div className="flex flex-col justify-start ml-4 transition-opacity duration-300 opacity-0 md:opacity-100">
             <h1 className="text-[100%] md:text-[120%] font-jua">
               <span className="font-jua text-confirmText">
                 트리에 모든 답변이
