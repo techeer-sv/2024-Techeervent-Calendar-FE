@@ -148,6 +148,11 @@ const Dino: React.FC = () => {
         setScore(scoreRef.current);
       }
 
+      // 착지 여부 확인
+      if (santa.y >= 200) {
+        isJumping = false; // 착지 완료
+      }
+
       santa.draw();
     };
 
@@ -157,7 +162,7 @@ const Dino: React.FC = () => {
         setGameStarted(true); // 게임 시작
       }
 
-      if (e.code === 'Space' && !isJumping) {
+      if (e.code === 'Space' && !isJumping && santa.y >= 200) {
         isJumping = true;
       }
     };
