@@ -21,7 +21,7 @@ const UnableConfirmModal = ({ onSubmit, Day }: UnableConfirmModalProps) => {
         }}
         className="w-modal h-modal p-4 rounded-[10px] bg-modalWhite flex flex-col items-center justify-center"
       >
-        <img className="w-[90px] h-[90px]" src={Warnning} />
+        <img className="w-[90px] h-[90px] mt-4" src={Warnning} />
 
         <h1 className="mt-[50px] text-[18px] text-center font-medium">
           아직은 내용을 확인할 수 없습니다 !
