@@ -2,7 +2,6 @@ import Icon from '@/components/icon/Icon';
 import QandA from '@/assets/images/QandA.png';
 import { motion } from 'framer-motion';
 import { QA } from '@/types/common';
-import { useEffect } from 'react';
 
 interface QuestionDetailListModalProps {
   onClose: () => void;
@@ -13,15 +12,6 @@ const QuestionDetailListModal = ({
   onClose,
   data,
 }: QuestionDetailListModalProps) => {
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden'; // html도 숨김 처리
-    return () => {
-      document.body.style.overflow = 'unset';
-      document.documentElement.style.overflow = 'unset';
-    };
-  }, []);
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <motion.div
