@@ -4,6 +4,7 @@ import useModal from './useModal';
 import { modals } from '@/components/Modals';
 import { useQuery } from '@tanstack/react-query';
 import { fetchDate, fetchUserQA } from '@/services/calendar';
+import { useQueryClient } from '@tanstack/react-query';
 
 export interface CalendarPosition {
   date: number;
@@ -20,6 +21,7 @@ export interface CalendarPosition {
 }
 
 const useCalendar = (userId: string) => {
+  const queryClient = useQueryClient();
   const [calendarPositions, setCalendarPositions] = useState<
     CalendarPosition[]
   >([]);
@@ -47,6 +49,9 @@ const useCalendar = (userId: string) => {
   };
 
   const toggleWindow = (date: number) => {
+    queryClient.invalidateQueries({
+      queryKey: ['today'],
+    });
     if (date > today) {
       handleUnableConfirmModalClick(date);
     } else if (date === today) {

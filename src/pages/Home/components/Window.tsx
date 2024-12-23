@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import CloseWindowIcon from '../../../../public/assets/CloseWindow.svg';
 import Door from '../../../../public/assets/Door.svg';
 import PinkDoor from '../../../../public/assets/Door(pink).svg';
+import { useQueryClient } from '@tanstack/react-query';
 
 const Window = ({
   date,
@@ -23,6 +24,7 @@ const Window = ({
   today: number;
   modal: () => void;
 }) => {
+  const queryClient = useQueryClient();
   return (
     <div className={`${className}`} style={style}>
       {isOpen && (
@@ -65,6 +67,9 @@ const Window = ({
       {isOpen && (
         <div
           onClick={() => {
+            queryClient.invalidateQueries({
+              queryKey: ['today'],
+            });
             modal();
           }}
         >
