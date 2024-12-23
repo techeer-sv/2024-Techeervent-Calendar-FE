@@ -98,7 +98,7 @@ const Dino: React.FC = () => {
 
     // 충돌 체크 함수
     const crush = (santa: Drawable, obstacle: Drawable): void => {
-      const xdif = obstacle.x - (santa.x + santa.width);
+      const xdif = obstacle.x - (santa.x + santa.width * 0.75);
       const ydif = obstacle.y - (santa.y + santa.height);
 
       if (xdif < 0 && ydif < 0) {
