@@ -4,13 +4,24 @@ const SNOW_NUMBER = 80;
 const MIN_DURATION = 10;
 const Snow = () => {
   const body = document.querySelector('body');
-  window.addEventListener('load', () => {
-    const bodyHeight = document.body.scrollHeight;
+
+  const updateFallDistance = () => {
+    const bodyHeight = Math.max(
+      document.documentElement.scrollHeight,
+      window.innerHeight
+    );
     document.documentElement.style.setProperty(
       '--fall-distance',
       `${bodyHeight - 100}px`
     );
-  });
+  };
+
+  if (document.readyState === 'complete') {
+    updateFallDistance();
+  } else {
+    window.addEventListener('load', updateFallDistance);
+  }
+
   useEffect(() => {
     const makeSnow = () => {
       //6 ~ 10
