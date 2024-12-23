@@ -22,15 +22,15 @@ const gifts = [
   {
     src: Ring3,
     alt: '선물3',
-    name: '커피 기프티콘',
-    num: '(5명)',
-    width: 'w-[85%] md:w-[100%]',
+    name: `스타벅스 아메리카노`,
+    num: '(7명)',
+    width: 'w-[85%] md:w-[85%]',
   },
   {
     src: Ring4,
     alt: '선물4',
     name: '비타500 100ml',
-    num: '(20명)',
+    num: '(30명)',
     width: 'w-[85%] md:w-[90%]',
   },
 ];
