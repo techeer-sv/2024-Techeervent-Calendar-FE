@@ -6,7 +6,7 @@ import Question from '@/assets/images/Question.svg';
 import InfiniteScroll from 'react-infinite-scroller';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { searchUserQA } from '@/services/calendar';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { QA } from '@/types/common';
 
 interface QuestionListModalProps {
@@ -55,15 +55,6 @@ const QuestionListModal = ({ onClose }: QuestionListModalProps) => {
       data: qa,
     });
   };
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden'; // html도 숨김 처리
-    return () => {
-      document.body.style.overflow = 'unset';
-      document.documentElement.style.overflow = 'unset';
-    };
-  }, []);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">

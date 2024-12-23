@@ -3,7 +3,7 @@ import QandA from '@/assets/images/QandA.png';
 import { motion } from 'framer-motion';
 import { submitAttendanceAndPrize } from '@/services/calendar';
 import { session } from '@/utils/session';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { modals } from '@/components/Modals';
 import useModal from '@/pages/Home/hooks/useModal';
 import { useQueryClient } from '@tanstack/react-query';
@@ -66,15 +66,6 @@ const QuestionModal = ({
       return null;
     }
   };
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden'; // html도 숨김 처리
-    return () => {
-      document.body.style.overflow = 'unset';
-      document.documentElement.style.overflow = 'unset';
-    };
-  }, []);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">

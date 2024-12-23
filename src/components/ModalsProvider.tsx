@@ -11,16 +11,17 @@ interface ModalsProviderProps {
 }
 
 const ModalsProvider = ({ children }: ModalsProviderProps) => {
-  const bodyEl = document.querySelector('body');
   const [openedModals, setOpenedModals] = useState<ModalItem[]>([]);
 
   const open = <P,>(Component: ComponentType<P>, props: P) => {
-    bodyEl?.classList.add('over_hidden');
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden'; // html도 숨김 처리
     setOpenedModals((modals) => [...modals, { Component, props }]);
   };
 
   const close = <P,>(Component: ComponentType<P>) => {
-    bodyEl?.classList.remove('over_hidden');
+    document.body.style.overflow = 'unset';
+    document.documentElement.style.overflow = 'unset';
     setOpenedModals((modals) =>
       modals.filter((modal) => modal.Component !== Component)
     );
