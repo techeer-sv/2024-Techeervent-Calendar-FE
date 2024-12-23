@@ -49,6 +49,15 @@ const LoginModal = ({ onSubmit }: LoginModalProps) => {
     }
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden'; // html도 숨김 처리
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.documentElement.style.overflow = 'unset';
+    };
+  }, []);
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-30">
       <motion.div
@@ -74,7 +83,7 @@ const LoginModal = ({ onSubmit }: LoginModalProps) => {
               onBlur={() => setTimeout(() => setIsFocused(false), 200)}
             />
             {isFocused && data.length !== 0 && (
-              <div className="absolute left-0 top-full w-full bg-white border border-gray-200 rounded-xl mt-1 shadow-lg z-10 py-3 max-h-40 overflow-y-auto">
+              <div className="absolute left-0 z-10 w-full py-3 mt-1 overflow-y-auto bg-white border border-gray-200 shadow-lg top-full rounded-xl max-h-40">
                 {[...new Set(data.map((user) => user.userName))].map(
                   (userName) => (
                     <button
