@@ -87,7 +87,7 @@ const Dino: React.FC = () => {
       if (score <= 20) {
         return `겨우 ${score}점? 진짜 그 정도밖에 못해?🤭`;
       } else if (score <= 40) {
-        return `${score}점? 뭐 좀 하긴 하네 하지만 이건 기본이지😏`;
+        return `${score}점? 뭐, 좀 하긴 하네. 하지만 이건 기본이지😏`;
       } else if (score < 80) {
         return `${score}점? 괜찮긴 한데, 80점은 넘겨야지~ 80점 넘기면 인정해줄게!`;
       } else if (score >= 80) {
@@ -98,7 +98,7 @@ const Dino: React.FC = () => {
 
     // 충돌 체크 함수
     const crush = (santa: Drawable, obstacle: Drawable): void => {
-      const xdif = obstacle.x - (santa.x + santa.width * 0.75);
+      const xdif = obstacle.x - (santa.x + santa.width);
       const ydif = obstacle.y - (santa.y + santa.height);
 
       if (xdif < 0 && ydif < 0) {
@@ -169,6 +169,16 @@ const Dino: React.FC = () => {
       santa.draw();
     };
 
+    const handleClickDown = () => {
+      if (!gameStarted) {
+        setGameStarted(true);
+      }
+
+      if (!isJumping && santa.y >= 200) {
+        isJumping = true;
+      }
+    };
+
     // 키 입력 처리
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!gameStarted) {
@@ -181,12 +191,14 @@ const Dino: React.FC = () => {
     };
 
     document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('mousedown', handleClickDown);
 
     // 게임 시작
     frame();
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClickDown);
     };
   }, [gameStarted]);
 
