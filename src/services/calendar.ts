@@ -3,6 +3,7 @@ import {
   GetUserQAResponse,
   GetAnswerCountResponse,
   SubmitAttendanceAndPrize,
+  FetchDateResponse,
 } from '@/types/api/calendar';
 import { GetRandomQuestionResponse } from '@/types/api/question';
 
@@ -36,5 +37,10 @@ export const submitAttendanceAndPrize = async (data: {
   calendarAnswer: string;
 }): Promise<SubmitAttendanceAndPrize> => {
   const response = await axiosClient.post('/calendar', data);
+  return response.data;
+};
+
+export const fetchDate = async (): Promise<FetchDateResponse> => {
+  const response = await axiosClient.get('/calendar/today');
   return response.data;
 };
