@@ -1,7 +1,4 @@
 import { User } from '@/types/common';
+import { ApiResponse } from './apiResponse';
 
-export interface SearchUsersResponse {
-  status: number;
-  message: string;
-  data: User[];
-}
+export type SearchUsersResponse = ApiResponse<User[]>;

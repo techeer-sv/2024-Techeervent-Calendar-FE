@@ -1,4 +1,5 @@
 import { User } from '@/types/common';
+import { ApiResponse } from './apiResponse';
 
 interface Winner {
   winnerId: number;
@@ -6,8 +7,4 @@ interface Winner {
   drawName: string;
 }
 
-export interface GetWinnersResponse {
-  status: number;
-  message: string;
-  data: Winner[];
-}
+export type GetWinnersResponse = ApiResponse<Winner[]>;
