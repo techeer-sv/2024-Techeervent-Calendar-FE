@@ -1,11 +1,9 @@
+import { ApiResponse } from '@/types/api/apiResponse';
+
 interface Draw {
   drawId: number;
   drawName: string;
   drawTotal: number;
 }
 
-export interface GetDrawlistResponse {
-  status: number;
-  message: string;
-  data: Draw[];
-}
+export type GetDrawlistResponse = ApiResponse<Draw[]>;

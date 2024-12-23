@@ -1,19 +1,12 @@
 import { Meta, QA } from '@/types/common';
+import { ApiResponse } from './apiResponse';
 
-export interface GetRandomQuestionResponse {
-  status: number;
-  message: string;
-  data: {
-    answers: QA[];
-    meta: Meta;
-  };
-}
+export type GetRandomQuestionResponse = ApiResponse<{
+  answers: QA[];
+  meta: Meta;
+}>;
 
-export interface GetRandomResponse {
-  status: number;
-  message: string;
-  data: {
-    questionId: number;
-    questionContent: string;
-  };
-}
+export type GetRandomResponse = ApiResponse<{
+  questionId: number;
+  questionContent: string;
+}>;
