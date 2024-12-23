@@ -15,23 +15,23 @@ const gifts = [
   {
     src: Ring2,
     alt: '선물2',
-    name: '컬리 상품권 1만원',
+    name: '컬리 1만원 상품권',
     num: '(3명)',
     width: 'w-[85%] md:w-[85%]',
   },
   {
     src: Ring3,
     alt: '선물3',
-    name: `스타벅스 아메리카노`,
-    num: '(10명)',
-    width: 'w-[85%] md:w-[85%]',
+    name: `비타500 100ml`,
+    num: '(30명)',
+    width: 'w-[85%] md:w-[95%]',
   },
   {
     src: Ring4,
     alt: '선물4',
-    name: '비타500 100ml',
-    num: '(30명)',
-    width: 'w-[85%] md:w-[90%]',
+    name: '스페셜 후원상품',
+    num: '(n명)',
+    width: 'w-[85%] md:w-[95%]',
   },
 ];
 
