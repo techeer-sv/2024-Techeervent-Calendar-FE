@@ -49,15 +49,6 @@ const LoginModal = ({ onSubmit }: LoginModalProps) => {
     }
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden'; // html도 숨김 처리
-    return () => {
-      document.body.style.overflow = 'unset';
-      document.documentElement.style.overflow = 'unset';
-    };
-  }, []);
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-30">
       <motion.div

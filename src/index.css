@@ -105,9 +105,3 @@ img {
   user-select: none;
   pointer-events: none;
 }
-
-.over_hidden {
-  overflow-y: hidden;
-  position: fixed;
-  width: 100%;
-}

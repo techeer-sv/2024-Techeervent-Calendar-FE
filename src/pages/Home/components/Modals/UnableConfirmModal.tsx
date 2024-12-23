@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button';
 import Warnning from '@/assets/images/warning.png';
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
 
 interface UnableConfirmModalProps {
   onSubmit: () => void;
@@ -9,15 +8,6 @@ interface UnableConfirmModalProps {
 }
 
 const UnableConfirmModal = ({ onSubmit, Day }: UnableConfirmModalProps) => {
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden'; // html도 숨김 처리
-    return () => {
-      document.body.style.overflow = 'unset';
-      document.documentElement.style.overflow = 'unset';
-    };
-  }, []);
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <motion.div
