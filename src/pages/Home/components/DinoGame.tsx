@@ -107,7 +107,7 @@ const Dino: React.FC = () => {
 
       // 배경 그리기 (구름과 땅)
       ctx.drawImage(cloud, 0, 0, canvas.width, 80); // 구름 배경
-      ctx.drawImage(ground, 0, canvas.height - 583, canvas.width, 80); // 땅 배경
+      ctx.drawImage(ground, 0, canvas.height - 495, canvas.width, 80); // 땅 배경
 
       // 일정 주기로 트리 생성 (1~2개 랜덤 생성)
       if (timer % 80 === 0) {
