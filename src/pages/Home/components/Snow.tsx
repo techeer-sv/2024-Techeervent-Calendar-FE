@@ -4,11 +4,13 @@ const SNOW_NUMBER = 80;
 const MIN_DURATION = 10;
 const Snow = () => {
   const body = document.querySelector('body');
-  const fallDistance = document.documentElement.scrollHeight;
-  document.documentElement.style.setProperty(
-    '--fall-distance',
-    `${fallDistance - 100}px`
-  );
+  window.addEventListener('load', () => {
+    const bodyHeight = document.body.scrollHeight;
+    document.documentElement.style.setProperty(
+      '--fall-distance',
+      `${bodyHeight - 100}px`
+    );
+  });
   useEffect(() => {
     const makeSnow = () => {
       //6 ~ 10

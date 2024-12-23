@@ -1,11 +1,21 @@
 import { Button } from '@/components/ui/button';
 import bomb from '@/assets/images/bomb.png';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 interface NoReceiveModalProps {
   onSubmit: () => void;
 }
 
 const NoReceiveModal = ({ onSubmit }: NoReceiveModalProps) => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden'; // html도 숨김 처리
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.documentElement.style.overflow = 'unset';
+    };
+  }, []);
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <motion.div
