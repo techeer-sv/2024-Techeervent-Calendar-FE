@@ -3,7 +3,7 @@ import CalendarData from '../components/CalendarData';
 import useModal from './useModal';
 import { modals } from '@/components/Modals';
 import { useQuery } from '@tanstack/react-query';
-import { fetchUserQA } from '@/services/calendar';
+import { fetchDate, fetchUserQA } from '@/services/calendar';
 
 export interface CalendarPosition {
   date: number;
@@ -24,14 +24,16 @@ const useCalendar = (userId: string) => {
     CalendarPosition[]
   >([]);
   const { openModal } = useModal();
-  const [today, setToday] = useState<number>(new Date().getDate());
+  const [browseToday, setBrowseToday] = useState<number>(new Date().getDate());
 
   useEffect(() => {
     const interval = setInterval(() => {
       const currentDate = new Date();
       const currentDay = currentDate.getDate();
 
-      setToday((prevDay) => (prevDay !== currentDay ? currentDay : prevDay));
+      setBrowseToday((prevDay) =>
+        prevDay !== currentDay ? currentDay : prevDay
+      );
     }, 1000);
 
     return () => clearInterval(interval);
@@ -67,6 +69,13 @@ const useCalendar = (userId: string) => {
     queryFn: () => fetchUserQA(userId),
     enabled: !!userId,
   });
+
+  const { data: todayData } = useQuery({
+    queryKey: ['today'],
+    queryFn: () => fetchDate(),
+  });
+
+  const today = todayData?.data === browseToday ? todayData?.data : 0;
 
   useEffect(() => {
     if (userCalendarData) {
