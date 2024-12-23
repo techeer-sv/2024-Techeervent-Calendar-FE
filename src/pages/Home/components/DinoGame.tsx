@@ -20,7 +20,7 @@ const Dino: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) throw new Error('Failed to get canvas rendering context');
 
-    canvas.width = window.innerWidth;
+    canvas.width = Math.min(window.innerWidth, 576);
     canvas.height = window.innerHeight - 100;
 
     // 이미지 로드
@@ -61,7 +61,7 @@ const Dino: React.FC = () => {
       height: number;
 
       constructor() {
-        this.x = 600;
+        this.x = Math.min(window.innerWidth, 576);
         this.y = 200;
         this.width = 50;
         this.height = 50;
