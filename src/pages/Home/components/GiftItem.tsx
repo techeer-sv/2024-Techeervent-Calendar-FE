@@ -23,7 +23,7 @@ const gifts = [
     src: Ring3,
     alt: '선물3',
     name: `스타벅스 아메리카노`,
-    num: '(7명)',
+    num: '(10명)',
     width: 'w-[85%] md:w-[85%]',
   },
   {
