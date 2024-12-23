@@ -1,11 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import mute from '@/assets/images/mute.png';
 import volume1 from '@/assets/images/volume1.png';
 import volume2 from '@/assets/images/volume2.png';
 import volume3 from '@/assets/images/volume3.png';
 import TecheerventBGM from '@/assets/sounds/TecheerventBGM.mp3';
 
-type VolumeType = 0 | 1 | 2 | 3;
+type MobileVolumeType = 0 | 3;
+type PcVolumeType = 0 | 1 | 2 | 3;
 
 const volumeSrcMap = {
   0: mute,
@@ -22,28 +23,40 @@ const volumeValueMap = {
 };
 
 const BGM = () => {
-  const [volume, setVolume] = useState<VolumeType>(0);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [volume, setVolume] = useState<MobileVolumeType | PcVolumeType>(0);
+  const [audio] = useState(new Audio(TecheerventBGM));
 
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = volumeValueMap[volume];
-    }
-  }, [volume]);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.loop = true;
-    }
+    const userAgent = navigator.userAgent.toLowerCase();
+    setIsMobile(/mobile|android|iphone|ipad/.test(userAgent));
   }, []);
 
-  const handleVolumeClick = () => {
-    if (audioRef.current) {
-      audioRef.current.play().catch((error) => {
+  useEffect(() => {
+    audio.loop = true;
+    audio.play().catch((error) => {
+      console.error('Audio playback failed:', error);
+    });
+  }, [audio]);
+
+  useEffect(() => {
+    if (volume === 0) {
+      audio.pause();
+      audio.currentTime = 0;
+    } else {
+      audio.play().catch((error) => {
         console.error('Audio playback failed:', error);
       });
+      audio.volume = volumeValueMap[volume];
     }
-    setVolume((prev) => (prev === 3 ? 0 : prev + 1) as VolumeType);
+  }, [volume, audio]);
+
+  const handleVolumeClick = () => {
+    if (isMobile) {
+      setVolume((prev) => (prev === 3 ? 0 : 3));
+    } else {
+      setVolume((prev) => (prev === 3 ? 0 : prev + 1) as PcVolumeType);
+    }
   };
 
   return (
@@ -51,7 +64,6 @@ const BGM = () => {
       <button className="w-8 h-8" onClick={handleVolumeClick}>
         <img src={volumeSrcMap[volume]} alt="volume" />
       </button>
-      <audio ref={audioRef} src={TecheerventBGM} />
     </div>
   );
 };
