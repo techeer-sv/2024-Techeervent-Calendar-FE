@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Santa from '../../../../public/assets/Santa.svg';
 import Tree from '../../../../public/assets/Obstacle.svg';
-import Ground from '../../../assets/images/ground.png';
 import Cloud from '../../../assets/images/cloud.png';
 
 const Dino: React.FC = () => {
@@ -30,9 +29,6 @@ const Dino: React.FC = () => {
 
     const img1 = new Image();
     img1.src = Tree;
-
-    const ground = new Image();
-    ground.src = Ground;
 
     const cloud = new Image();
     cloud.src = Cloud;
@@ -85,20 +81,23 @@ const Dino: React.FC = () => {
 
     const gameoverMessage = (score: number): string => {
       if (score <= 20) {
-        return `겨우 ${score}점? 진짜 그 정도밖에 못해?🤭`;
-      } else if (score <= 40) {
-        return `${score}점? 뭐, 좀 하긴 하네. 하지만 이건 기본이지😏`;
-      } else if (score < 80) {
-        return `${score}점? 괜찮긴 한데, 80점은 넘겨야지~ 80점 넘기면 인정해줄게!`;
-      } else if (score >= 80) {
-        return `${score}점? 이제 진짜 실력인가? 이 정도면 인정한다👏`;
+        return `에게 ${score}점?ㅋ`;
+      }
+      if (score <= 40) {
+        return `올 ${score}점? 좀 치네ㅋ `;
+      }
+      if (score < 80) {
+        return `${score}점? 80점을 넘기면...`;
+      }
+      if (score >= 80) {
+        return `${score}점? 박수 드림👏`;
       }
       return '';
     };
 
     // 충돌 체크 함수
     const crush = (santa: Drawable, obstacle: Drawable): void => {
-      const xdif = obstacle.x - (santa.x + santa.width);
+      const xdif = obstacle.x - (santa.x + santa.width) * 0.8;
       const ydif = obstacle.y - (santa.y + santa.height);
 
       if (xdif < 0 && ydif < 0) {
@@ -120,7 +119,6 @@ const Dino: React.FC = () => {
 
       // 배경 그리기 (구름과 땅)
       ctx.drawImage(cloud, 0, 0, canvas.width, 80); // 구름 배경
-      ctx.drawImage(ground, 0, canvas.height - 495, canvas.width, 80); // 땅 배경
 
       // 일정 주기로 트리 생성 (1~2개 랜덤 생성)
       if (timer % 80 === 0) {
