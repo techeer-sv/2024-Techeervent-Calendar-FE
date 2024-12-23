@@ -28,3 +28,9 @@ export interface SubmitAttendanceAndPrize {
     drawName: string;
   };
 }
+
+export interface FetchDateResponse {
+  status: number;
+  message: string;
+  data: number;
+}
