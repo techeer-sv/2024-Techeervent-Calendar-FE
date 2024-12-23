@@ -33,6 +33,12 @@ const WinningListModal = ({ onClose, winner }: WinningListModalProps) => {
         <img className="w-[80px] h-[62px] mb-3" src={Crown} />
 
         <div className="flex-1 w-full overflow-auto">
+          {winner.data.length === 0 && (
+            <p className="flex items-center mt-24 justify-center text-placeholderText">
+              아직 당첨자가 없습니다 !
+            </p>
+          )}
+
           {winner.data.map((item, index) => (
             <div
               key={index}
