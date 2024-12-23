@@ -91,8 +91,8 @@ const Dino: React.FC = () => {
       if (xdif < 0 && ydif < 0) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         cancelAnimationFrame(animation);
-        resetGame();
         alert(`Game Over! Your final score: ${scoreRef.current}`);
+        resetGame();
       }
     };
 
