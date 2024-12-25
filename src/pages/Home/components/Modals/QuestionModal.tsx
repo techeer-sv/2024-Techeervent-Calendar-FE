@@ -25,6 +25,8 @@ const QuestionModal = ({
   const queryClient = useQueryClient();
 
   const handleSubmit = async () => {
+    if (!answer.trim()) return;
+
     try {
       const res = await submitAttendanceAndPrize({
         userId: session.get('userId') || '',
@@ -92,7 +94,12 @@ const QuestionModal = ({
         />
         <Button
           onClick={handleSubmit}
-          className="w-full text-[16px] rounded-[999px] cursor-pointer bg-modalButtonBackground text-whiteDefault box-border hover:opacity-70"
+          disabled={!answer.trim()}
+          className={`w-full text-[16px] rounded-[999px] cursor-pointer ${
+            !answer.trim()
+              ? 'bg-gray-300 cursor-not-allowed'
+              : 'bg-modalButtonBackground text-whiteDefault hover:opacity-70'
+          }`}
         >
           출석
         </Button>
