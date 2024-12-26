@@ -80,7 +80,7 @@ const useCalendar = (userId: string) => {
     queryFn: () => fetchDate(),
   });
 
-  const today = todayData?.data === browseToday ? todayData?.data : 0;
+  const today = todayData?.data || browseToday;
 
   useEffect(() => {
     if (userCalendarData) {
