@@ -9,16 +9,16 @@ const AnswerList = () => {
   const { today } = useCalendar(session.get('userId') || '');
 
   const handleTreeClick = async () => {
-    if (today < 31) {
-      openModal(modals.UnableConfirmModal, {
-        onSubmit: () => {},
-        Day: () => 31,
-      });
-    } else {
-      openModal(modals.QuestionListModal, {
-        onClose: () => {},
-      });
-    }
+    // if (today < 31) {
+    //   openModal(modals.UnableConfirmModal, {
+    //     onSubmit: () => {},
+    //     Day: () => 31,
+    //   });
+    // } else {
+    openModal(modals.QuestionListModal, {
+      onClose: () => {},
+    });
+    // }
   };
 
   return (
